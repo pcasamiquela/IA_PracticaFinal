@@ -1,0 +1,754 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Project">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Project\Engine">
+      <UniqueIdentifier>{62e66587-2a86-4582-a20f-046328da7f2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Engine\Entities">
+      <UniqueIdentifier>{deca530b-7742-4a32-a454-6c91672516ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Engine\Utils">
+      <UniqueIdentifier>{a96b3a27-b2ac-4b62-a2dd-1fb894f7ce89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Engine\Level">
+      <UniqueIdentifier>{6fc84ab1-a541-4e78-a222-44ef500b5a6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Engine\Systems">
+      <UniqueIdentifier>{b6deffd0-cb69-4295-94d0-08a0bee46969}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Engine\Systems\Animation">
+      <UniqueIdentifier>{48de5d58-3ac1-4e3e-8393-c04bc8a036dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Engine\Systems\Audio">
+      <UniqueIdentifier>{1600901a-74a1-4bce-9fb6-f29adaa1b8d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Engine\Systems\States">
+      <UniqueIdentifier>{9f1ba8d2-0036-49c2-a728-f2dca1cfdbbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Engine\Systems\Graphics">
+      <UniqueIdentifier>{926c5870-859a-49ad-815b-27f0e0a21efc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Engine\Systems\Input">
+      <UniqueIdentifier>{76dfbca9-5014-41b7-9612-ac58c006c65d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Engine\Text">
+      <UniqueIdentifier>{6761d755-df9a-45d9-a610-8fadf25082c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game">
+      <UniqueIdentifier>{47947f0a-0ea0-4154-96c4-3677c378e704}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\States">
+      <UniqueIdentifier>{f1a5c63d-b114-4303-91c1-c18c334d82b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\Entities">
+      <UniqueIdentifier>{6ef0d375-2cb4-4274-9aed-1f533010e73a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI">
+      <UniqueIdentifier>{71156660-be53-4ac7-ba5c-b30f014bf2da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Movement">
+      <UniqueIdentifier>{338ab234-f39c-4345-b7e5-faffdee3f2b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Dependencies">
+      <UniqueIdentifier>{59bf4c0e-09a1-4eff-af57-3b1e54df7db2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Dependencies\SDL_gfx">
+      <UniqueIdentifier>{1a8d5ce8-9c0e-48f2-a131-a697a4404446}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Dependencies\SDL_FontCache">
+      <UniqueIdentifier>{8974672b-d83b-48d8-95de-678b85ffe481}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Movement\Utils">
+      <UniqueIdentifier>{c2356900-e7d0-4059-acb8-1aded57bab4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Movement\Entities">
+      <UniqueIdentifier>{ba4dd832-f9c5-45da-8956-bd2717dbac6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Movement\Elements">
+      <UniqueIdentifier>{f6252b65-3c1e-47cb-a607-4a3702d7750e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Representation">
+      <UniqueIdentifier>{d4313599-d043-4d93-8d6a-2e306c886e7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Representation\Blackboards">
+      <UniqueIdentifier>{9b36fad3-e407-464d-9133-3a322bd4c865}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Representation\Blackboards\Entities">
+      <UniqueIdentifier>{3ff9ac70-231b-4f68-b552-8b8cf517fa8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Representation\Blackboards\Elements">
+      <UniqueIdentifier>{d3d8e544-8119-483c-a8e1-5a2e0c425ab8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Representation\Blackboards\Utils">
+      <UniqueIdentifier>{55238655-b6d1-4f45-895d-69bb37e04732}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Representation\SensorySystems">
+      <UniqueIdentifier>{c6121657-d5be-4a24-8574-6a315a0372f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Representation\SensorySystems\Entities">
+      <UniqueIdentifier>{87de902b-1379-4329-91c4-9331363847c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Representation\SensorySystems\Elements">
+      <UniqueIdentifier>{99a98c31-6468-4f15-92a7-4d0550c54b5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Decisions">
+      <UniqueIdentifier>{dd794e74-6ca4-4edf-9655-382708767dcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Decisions\DecisionTrees">
+      <UniqueIdentifier>{795d816f-48a4-4910-95ac-54dfbfd2334f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\Controllers">
+      <UniqueIdentifier>{5a85cb9e-9642-447f-b55d-05c5018e3e90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Decisions\DecisionTrees\Entities">
+      <UniqueIdentifier>{65f35162-4b32-402f-894d-a61734d0e3b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Decisions\DecisionTrees\Utils">
+      <UniqueIdentifier>{ed28666b-b6a2-449b-b3ef-eb82b19f403e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Decisions\FSM">
+      <UniqueIdentifier>{5e6745f0-2417-4c60-b87e-98def8b969b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Decisions\FSM\FunctionPointerStyle">
+      <UniqueIdentifier>{d26385ca-e2d1-4610-ad65-12f999aa89cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\Misc">
+      <UniqueIdentifier>{d64d49ec-3fdd-48a5-8de4-4531dcb3c851}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Decisions\FSM\MacrosStyle">
+      <UniqueIdentifier>{9bffe250-e416-497b-b15d-b8a50eef63a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Decisions\FSM\SimplePointerStyle">
+      <UniqueIdentifier>{ff58a5ed-20a7-4476-bc8c-8b73eee6b056}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Decisions\FSM\HFSM">
+      <UniqueIdentifier>{446b9b93-6bd6-4861-89ed-484ec43d5d19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Decisions\FSM\HardCoded">
+      <UniqueIdentifier>{f9300872-d082-410a-86e6-777f7fa886cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Decisions\FSM\HardCoded\Entities">
+      <UniqueIdentifier>{86b6d2c5-60ae-487a-ac68-9c85180a6530}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Decisions\FSM\MacrosStyle\Usage">
+      <UniqueIdentifier>{e6021512-e309-4a06-ae86-32e1741bc24c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Decisions\FSM\SimplePointerStyle\Usage">
+      <UniqueIdentifier>{0d852480-2181-420f-91bd-9ef0a98f4e7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Decisions\FSM\FunctionPointerStyle\Usage">
+      <UniqueIdentifier>{a4d73c9e-8b40-421e-a210-dc03afa6aed2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Decisions\FSM\HFSM\Usage">
+      <UniqueIdentifier>{260c7a42-5741-42da-80d4-d7cb9b9541c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Decisions\BehaviorTrees">
+      <UniqueIdentifier>{37e36f97-add4-4c9e-ad1d-e0442ec739c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Decisions\BehaviorTrees\Utils">
+      <UniqueIdentifier>{ca1b6b5b-8067-41a8-b0cd-a7537d4de938}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Decisions\BehaviorTrees\Entities">
+      <UniqueIdentifier>{a1b00cc9-1064-4d82-9c5f-c864157bf9d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Representation\SensorySystems\RegionalSenseManager">
+      <UniqueIdentifier>{e16bc51d-f841-4415-9d1f-e5db313e765e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Representation\SensorySystems\RegionalSenseManager\Usage">
+      <UniqueIdentifier>{8655d7dc-7b12-4e7d-b464-e6fdc9dba24c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Navigation">
+      <UniqueIdentifier>{c1188e8a-271f-41b7-a3be-ef5d36daffd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Navigation\Basic">
+      <UniqueIdentifier>{97cc02eb-de6c-47eb-b0d4-9ce074b05bc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Navigation\Advanced">
+      <UniqueIdentifier>{c1aebf3e-c538-4507-af27-274844c7f0a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Planning">
+      <UniqueIdentifier>{fc28e47d-e05a-4f9f-b91c-0467f94acb1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Planning\GOAP">
+      <UniqueIdentifier>{38343748-8106-45c7-a539-e68d64c8f6f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\Planning\HTN">
+      <UniqueIdentifier>{cbe3e02d-9a2e-429e-8d15-d62daa00077c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\LocationBasedKnowledge">
+      <UniqueIdentifier>{d58b2081-d8ea-4d3b-89cd-5545f033a735}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\LocationBasedKnowledge\Entities">
+      <UniqueIdentifier>{4437c0e4-c31f-4acd-bcd6-282722bee263}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project\Game\AI\LocationBasedKnowledge\Utils">
+      <UniqueIdentifier>{3123c189-845d-42b2-86ff-0be07a481703}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\source\Engine\Game.cpp">
+      <Filter>Project\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\MenuState.cpp">
+      <Filter>Project\Game\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\SDL_FontCache\SDL_FontCache.c">
+      <Filter>Project\Dependencies\SDL_FontCache</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\SDL_gfx\SDL2_rotozoom.c">
+      <Filter>Project\Dependencies\SDL_gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\SDL_gfx\SDL2_gfxPrimitives.c">
+      <Filter>Project\Dependencies\SDL_gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\Engine\BitmapFont.cpp">
+      <Filter>Project\Engine\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\Engine\DibObject.cpp">
+      <Filter>Project\Engine\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\Engine\DibSprite.cpp">
+      <Filter>Project\Engine\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\Engine\Level.cpp">
+      <Filter>Project\Engine\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\Engine\RotatedText.cpp">
+      <Filter>Project\Engine\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\Engine\Timer.cpp">
+      <Filter>Project\Engine\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\Engine\Trail.cpp">
+      <Filter>Project\Engine\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\Engine\StateManager.cpp">
+      <Filter>Project\Engine\Systems\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\Engine\TextureManager.cpp">
+      <Filter>Project\Engine\Systems\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\Engine\StaticTexture.cpp">
+      <Filter>Project\Engine\Systems\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\Engine\Texture.cpp">
+      <Filter>Project\Engine\Systems\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\Engine\SoundManager.cpp">
+      <Filter>Project\Engine\Systems\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\Engine\Input.cpp">
+      <Filter>Project\Engine\Systems\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\Engine\DibAnimationController.cpp">
+      <Filter>Project\Engine\Systems\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\Engine\DibAnimation.cpp">
+      <Filter>Project\Engine\Systems\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\Rotator.cpp">
+      <Filter>Project\Game\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\Player.cpp">
+      <Filter>Project\Game\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\Main.cpp">
+      <Filter>Project</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\Boid.cpp">
+      <Filter>Project\Game\AI\Movement\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\Obstacle.cpp">
+      <Filter>Project\Game\AI\Movement\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\Path.cpp">
+      <Filter>Project\Game\AI\Movement\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\SimplePath.cpp">
+      <Filter>Project\Game\AI\Movement\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\SteeringGroup.cpp">
+      <Filter>Project\Game\AI\Movement\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\FlowField.cpp">
+      <Filter>Project\Game\AI\Movement\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\FlowObstacle.cpp">
+      <Filter>Project\Game\AI\Movement\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\BlackboardAgent.cpp">
+      <Filter>Project\Game\AI\Representation\Blackboards\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\DynamicBlackboard.cpp">
+      <Filter>Project\Game\AI\Representation\Blackboards\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\StaticBlackboard.cpp">
+      <Filter>Project\Game\AI\Representation\Blackboards\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\SignalProp.cpp">
+      <Filter>Project\Game\AI\Representation\SensorySystems\RegionalSenseManager\Usage</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\Modality.cpp">
+      <Filter>Project\Game\AI\Representation\SensorySystems\RegionalSenseManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\RegionalSenseManager.cpp">
+      <Filter>Project\Game\AI\Representation\SensorySystems\RegionalSenseManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\Sensor.cpp">
+      <Filter>Project\Game\AI\Representation\SensorySystems\RegionalSenseManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\SensorNotification.cpp">
+      <Filter>Project\Game\AI\Representation\SensorySystems\RegionalSenseManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\SightModality.cpp">
+      <Filter>Project\Game\AI\Representation\SensorySystems\RegionalSenseManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\Signal.cpp">
+      <Filter>Project\Game\AI\Representation\SensorySystems\RegionalSenseManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\LOS_Obstacle.cpp">
+      <Filter>Project\Game\AI\Representation\SensorySystems\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\ConeEnemyAgent.cpp">
+      <Filter>Project\Game\AI\Representation\SensorySystems\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\EllipseEnemyAgent.cpp">
+      <Filter>Project\Game\AI\Representation\SensorySystems\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\UncertaintyAgent.cpp">
+      <Filter>Project\Game\AI\Representation\SensorySystems\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\Area.cpp">
+      <Filter>Project\Game\Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\WarriorPlayer.cpp">
+      <Filter>Project\Game\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\AnimatedBoid.cpp">
+      <Filter>Project\Game\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\GameController.cpp">
+      <Filter>Project\Game\Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\DecisionTree.cpp">
+      <Filter>Project\Game\AI\Decisions\DecisionTrees\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\DecisionTreeInteractive.cpp">
+      <Filter>Project\Game\AI\Decisions\DecisionTrees\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\DecisionTreeRealTime.cpp">
+      <Filter>Project\Game\AI\Decisions\DecisionTrees\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\DecisionTreeBoid.cpp">
+      <Filter>Project\Game\AI\Decisions\DecisionTrees\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\HC_DecisionTreeBoid.cpp">
+      <Filter>Project\Game\AI\Decisions\DecisionTrees\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\EnemyAgent.cpp">
+      <Filter>Project\Game\AI\Decisions\FSM\HardCoded\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\StateMachine.cpp">
+      <Filter>Project\Game\AI\Decisions\FSM\MacrosStyle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\Miner.cpp">
+      <Filter>Project\Game\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\MinerMacrosStateMachine.cpp">
+      <Filter>Project\Game\AI\Decisions\FSM\MacrosStyle\Usage</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\MinerOwnedStates.cpp">
+      <Filter>Project\Game\AI\Decisions\FSM\SimplePointerStyle\Usage</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\MinerSimplePointer.cpp">
+      <Filter>Project\Game\AI\Decisions\FSM\SimplePointerStyle\Usage</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\PointerFSM.cpp">
+      <Filter>Project\Game\AI\Decisions\FSM\FunctionPointerStyle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\MinerPointer.cpp">
+      <Filter>Project\Game\AI\Decisions\FSM\FunctionPointerStyle\Usage</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\CleanerRobotClean.cpp">
+      <Filter>Project\Game\AI\Decisions\FSM\HFSM\Usage</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\CleanerRobotEnergy.cpp">
+      <Filter>Project\Game\AI\Decisions\FSM\HFSM\Usage</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\BehaviorTree.cpp">
+      <Filter>Project\Game\AI\Decisions\BehaviorTrees\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\BasicAgent.cpp">
+      <Filter>Project\Game\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\BTAgent.cpp">
+      <Filter>Project\Game\AI\Decisions\BehaviorTrees\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\BTCollabAgent.cpp">
+      <Filter>Project\Game\AI\Decisions\BehaviorTrees\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\BTSoloAgent.cpp">
+      <Filter>Project\Game\AI\Decisions\BehaviorTrees\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\BTSimpleSoloAgent.cpp">
+      <Filter>Project\Game\AI\Decisions\BehaviorTrees\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\GridUtils.cpp">
+      <Filter>Project\Game\AI\Navigation\Basic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\GraphUtils.cpp">
+      <Filter>Project\Game\AI\Navigation\Advanced</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\NavMeshUtils.cpp">
+      <Filter>Project\Game\AI\Navigation\Advanced</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\astar.c">
+      <Filter>Project\Game\AI\Planning\GOAP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\goap.c">
+      <Filter>Project\Game\AI\Planning\GOAP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\HTNUtils.cpp">
+      <Filter>Project\Game\AI\Planning\HTN</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\StrategyUtils.cpp">
+      <Filter>Project\Game\AI\LocationBasedKnowledge\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\InfluenceMapUtils.cpp">
+      <Filter>Project\Game\AI\LocationBasedKnowledge\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\InfluenceAgent.cpp">
+      <Filter>Project\Game\AI\LocationBasedKnowledge\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\InfluenceBoid.cpp">
+      <Filter>Project\Game\AI\LocationBasedKnowledge\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\InfluencePlayer.cpp">
+      <Filter>Project\Game\AI\LocationBasedKnowledge\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\SimpleInfluenceMapState.cpp">
+      <Filter>Project\Game\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\PracticaFinalState.cpp">
+      <Filter>Project\Game\States</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\source\Constants.h">
+      <Filter>Project</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dependencies\SDL_FontCache\SDL_FontCache.h">
+      <Filter>Project\Dependencies\SDL_FontCache</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dependencies\SDL_gfx\SDL2_gfxPrimitives.h">
+      <Filter>Project\Dependencies\SDL_gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dependencies\SDL_gfx\SDL2_gfxPrimitives_font.h">
+      <Filter>Project\Dependencies\SDL_gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dependencies\SDL_gfx\SDL2_rotozoom.h">
+      <Filter>Project\Dependencies\SDL_gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\Engine\DibObject.h">
+      <Filter>Project\Engine\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\Engine\DibSprite.h">
+      <Filter>Project\Engine\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\Engine\GenericPool.h">
+      <Filter>Project\Engine\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\Engine\Level.h">
+      <Filter>Project\Engine\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\Engine\DibAnimation.h">
+      <Filter>Project\Engine\Systems\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\Engine\DibAnimationController.h">
+      <Filter>Project\Engine\Systems\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\Engine\SoundManager.h">
+      <Filter>Project\Engine\Systems\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\Engine\StaticTexture.h">
+      <Filter>Project\Engine\Systems\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\Engine\Texture.h">
+      <Filter>Project\Engine\Systems\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\Engine\TextureManager.h">
+      <Filter>Project\Engine\Systems\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\Engine\Input.h">
+      <Filter>Project\Engine\Systems\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\Engine\BaseState.h">
+      <Filter>Project\Engine\Systems\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\Engine\StateManager.h">
+      <Filter>Project\Engine\Systems\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\Engine\BitmapFont.h">
+      <Filter>Project\Engine\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\Engine\RotatedText.h">
+      <Filter>Project\Engine\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\Engine\Colors.h">
+      <Filter>Project\Engine\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\Engine\Timer.h">
+      <Filter>Project\Engine\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\Engine\Trail.h">
+      <Filter>Project\Engine\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\Engine\Utilities.h">
+      <Filter>Project\Engine\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\Engine\Vector2D.h">
+      <Filter>Project\Engine\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\Engine\EngineFramework.h">
+      <Filter>Project\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\Engine\Game.h">
+      <Filter>Project\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\Rotator.h">
+      <Filter>Project\Game\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\Player.h">
+      <Filter>Project\Game\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\MenuState.h">
+      <Filter>Project\Game\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\AdvancedSteeringUtils.h">
+      <Filter>Project\Game\AI\Movement\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\SteeringUtils.h">
+      <Filter>Project\Game\AI\Movement\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\FlockingUtils.h">
+      <Filter>Project\Game\AI\Movement\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\Boid.h">
+      <Filter>Project\Game\AI\Movement\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\SimplePath.h">
+      <Filter>Project\Game\AI\Movement\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\Obstacle.h">
+      <Filter>Project\Game\AI\Movement\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\Path.h">
+      <Filter>Project\Game\AI\Movement\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\CombiningSteeringUtils.h">
+      <Filter>Project\Game\AI\Movement\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\SteeringGroup.h">
+      <Filter>Project\Game\AI\Movement\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\FlowFieldUtils.h">
+      <Filter>Project\Game\AI\Movement\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\FlowField.h">
+      <Filter>Project\Game\AI\Movement\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\FlowObstacle.h">
+      <Filter>Project\Game\AI\Movement\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\BlackboardAgent.h">
+      <Filter>Project\Game\AI\Representation\Blackboards\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\DynamicBlackboard.h">
+      <Filter>Project\Game\AI\Representation\Blackboards\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\StaticBlackboard.h">
+      <Filter>Project\Game\AI\Representation\Blackboards\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\SimpleBlackboard.h">
+      <Filter>Project\Game\AI\Representation\Blackboards\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\SignalProp.h">
+      <Filter>Project\Game\AI\Representation\SensorySystems\RegionalSenseManager\Usage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\Modality.h">
+      <Filter>Project\Game\AI\Representation\SensorySystems\RegionalSenseManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\RegionalSenseManager.h">
+      <Filter>Project\Game\AI\Representation\SensorySystems\RegionalSenseManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\Sensor.h">
+      <Filter>Project\Game\AI\Representation\SensorySystems\RegionalSenseManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\SensorNotification.h">
+      <Filter>Project\Game\AI\Representation\SensorySystems\RegionalSenseManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\SightModality.h">
+      <Filter>Project\Game\AI\Representation\SensorySystems\RegionalSenseManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\Signal.h">
+      <Filter>Project\Game\AI\Representation\SensorySystems\RegionalSenseManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\LOS_Obstacle.h">
+      <Filter>Project\Game\AI\Representation\SensorySystems\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\ConeEnemyAgent.h">
+      <Filter>Project\Game\AI\Representation\SensorySystems\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\EllipseEnemyAgent.h">
+      <Filter>Project\Game\AI\Representation\SensorySystems\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\UncertaintyAgent.h">
+      <Filter>Project\Game\AI\Representation\SensorySystems\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\Area.h">
+      <Filter>Project\Game\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\WarriorPlayer.h">
+      <Filter>Project\Game\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\AnimatedBoid.h">
+      <Filter>Project\Game\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\GameController.h">
+      <Filter>Project\Game\Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\DecisionTree.h">
+      <Filter>Project\Game\AI\Decisions\DecisionTrees\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\DecisionTreeRealTime.h">
+      <Filter>Project\Game\AI\Decisions\DecisionTrees\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\DecisionTreeInteractive.h">
+      <Filter>Project\Game\AI\Decisions\DecisionTrees\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\DecisionTreeBoid.h">
+      <Filter>Project\Game\AI\Decisions\DecisionTrees\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\HC_DecisionTreeBoid.h">
+      <Filter>Project\Game\AI\Decisions\DecisionTrees\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\EnemyAgent.h">
+      <Filter>Project\Game\AI\Decisions\FSM\HardCoded\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\FSMMacros.h">
+      <Filter>Project\Game\AI\Decisions\FSM\MacrosStyle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\StateMachine.h">
+      <Filter>Project\Game\AI\Decisions\FSM\MacrosStyle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\Miner.h">
+      <Filter>Project\Game\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\MinerMacrosStateMachine.h">
+      <Filter>Project\Game\AI\Decisions\FSM\MacrosStyle\Usage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\State.h">
+      <Filter>Project\Game\AI\Decisions\FSM\SimplePointerStyle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\MinerSimplePointer.h">
+      <Filter>Project\Game\AI\Decisions\FSM\SimplePointerStyle\Usage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\MinerOwnedStates.h">
+      <Filter>Project\Game\AI\Decisions\FSM\SimplePointerStyle\Usage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\PointerFSM.h">
+      <Filter>Project\Game\AI\Decisions\FSM\FunctionPointerStyle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\PointerState.h">
+      <Filter>Project\Game\AI\Decisions\FSM\FunctionPointerStyle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\MinerPointer.h">
+      <Filter>Project\Game\AI\Decisions\FSM\FunctionPointerStyle\Usage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\CleanerRobotClean.h">
+      <Filter>Project\Game\AI\Decisions\FSM\HFSM\Usage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\CleanerRobotEnergy.h">
+      <Filter>Project\Game\AI\Decisions\FSM\HFSM\Usage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\BehaviorTree.h">
+      <Filter>Project\Game\AI\Decisions\BehaviorTrees\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\BasicAgent.h">
+      <Filter>Project\Game\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\BTAgent.h">
+      <Filter>Project\Game\AI\Decisions\BehaviorTrees\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\BTCollabAgent.h">
+      <Filter>Project\Game\AI\Decisions\BehaviorTrees\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\BTSoloAgent.h">
+      <Filter>Project\Game\AI\Decisions\BehaviorTrees\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\BTSimpleSoloAgent.h">
+      <Filter>Project\Game\AI\Decisions\BehaviorTrees\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\GridUtils.h">
+      <Filter>Project\Game\AI\Navigation\Basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\PathfindingUtils.h">
+      <Filter>Project\Game\AI\Navigation\Advanced</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\SteppedPathfindingUtils.h">
+      <Filter>Project\Game\AI\Navigation\Advanced</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\PathfindingHelpers.h">
+      <Filter>Project\Game\AI\Navigation\Advanced</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\AdvancedPathfindingUtils.h">
+      <Filter>Project\Game\AI\Navigation\Advanced</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\GraphUtils.h">
+      <Filter>Project\Game\AI\Navigation\Advanced</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\NavMeshUtils.h">
+      <Filter>Project\Game\AI\Navigation\Advanced</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\astar.h">
+      <Filter>Project\Game\AI\Planning\GOAP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\goap.h">
+      <Filter>Project\Game\AI\Planning\GOAP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\HTNUtils.h">
+      <Filter>Project\Game\AI\Planning\HTN</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\StrategyUtils.h">
+      <Filter>Project\Game\AI\LocationBasedKnowledge\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\InfluenceMapUtils.h">
+      <Filter>Project\Game\AI\LocationBasedKnowledge\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\InfluenceAgent.h">
+      <Filter>Project\Game\AI\LocationBasedKnowledge\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\InfluenceBoid.h">
+      <Filter>Project\Game\AI\LocationBasedKnowledge\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\InfluencePlayer.h">
+      <Filter>Project\Game\AI\LocationBasedKnowledge\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\InfluenceTypes.h">
+      <Filter>Project\Game\AI\LocationBasedKnowledge\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\SimpleInfluenceMapState.h">
+      <Filter>Project\Game\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\PracticaFinalState.h">
+      <Filter>Project\Game\States</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\PracticaFinal.licenseheader" />
+  </ItemGroup>
+</Project>

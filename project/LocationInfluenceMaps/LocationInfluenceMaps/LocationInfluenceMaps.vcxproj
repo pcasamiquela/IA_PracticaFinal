@@ -1,0 +1,405 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D605DC0E-7CDA-44D6-ABB2-2FDC90570874}</ProjectGuid>
+    <RootNamespace>LocationInfluenceMaps</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <ProjectName>PracticaFinal</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)..\..\bin\</OutDir>
+    <EnableManagedIncrementalBuild>false</EnableManagedIncrementalBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)..\..\bin\</OutDir>
+    <EnableManagedIncrementalBuild>false</EnableManagedIncrementalBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)..\..\bin\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <EnableManagedIncrementalBuild>false</EnableManagedIncrementalBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)..\..\bin\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <EnableManagedIncrementalBuild>false</EnableManagedIncrementalBuild>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\lib\SDL2\include;$(ProjectDir)..\..\..\lib\SDL2_image\include;$(ProjectDir)..\..\..\lib\SDL2_ttf\include;$(ProjectDir)..\..\..\lib\SDL2_mixer\include;$(ProjectDir)..\..\..\source\Engine\;$(ProjectDir)..\..\..\source\;$(ProjectDir)..\..\..\dependencies\</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;</PreprocessorDefinitions>
+      <DisableSpecificWarnings>4244;4028;4800;</DisableSpecificWarnings>
+      <MinimalRebuild>false</MinimalRebuild>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\..\lib\SDL2\lib\$(PlatformTarget);$(ProjectDir)..\..\..\lib\SDL2_image\lib\$(PlatformTarget);$(ProjectDir)..\..\..\lib\SDL2_ttf\lib\$(PlatformTarget);$(ProjectDir)..\..\..\lib\SDL2_mixer\lib\$(PlatformTarget);</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib;SDL2.lib;SDL2main.lib;</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\lib\SDL2\include;$(ProjectDir)..\..\..\lib\SDL2_image\include;$(ProjectDir)..\..\..\lib\SDL2_ttf\include;$(ProjectDir)..\..\..\lib\SDL2_mixer\include;$(ProjectDir)..\..\..\source\Engine\;$(ProjectDir)..\..\..\source\;$(ProjectDir)..\..\..\dependencies\</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4244;4028;4800;</DisableSpecificWarnings>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\..\lib\SDL2\lib\$(PlatformTarget);$(ProjectDir)..\..\..\lib\SDL2_image\lib\$(PlatformTarget);$(ProjectDir)..\..\..\lib\SDL2_ttf\lib\$(PlatformTarget);$(ProjectDir)..\..\..\lib\SDL2_mixer\lib\$(PlatformTarget);</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib;SDL2.lib;SDL2main.lib;</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\lib\SDL2\include;$(ProjectDir)..\..\..\lib\SDL2_image\include;$(ProjectDir)..\..\..\lib\SDL2_ttf\include;$(ProjectDir)..\..\..\lib\SDL2_mixer\include;$(ProjectDir)..\..\..\source\Engine\;$(ProjectDir)..\..\..\source\;$(ProjectDir)..\..\..\dependencies\</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4244;4028;</DisableSpecificWarnings>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib;SDL2.lib;SDL2main.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\..\lib\SDL2\lib\$(PlatformTarget);$(ProjectDir)..\..\..\lib\SDL2_image\lib\$(PlatformTarget);$(ProjectDir)..\..\..\lib\SDL2_ttf\lib\$(PlatformTarget);$(ProjectDir)..\..\..\lib\SDL2_mixer\lib\$(PlatformTarget);</AdditionalLibraryDirectories>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <DisableSpecificWarnings>4244;4028;</DisableSpecificWarnings>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\lib\SDL2\include;$(ProjectDir)..\..\..\lib\SDL2_image\include;$(ProjectDir)..\..\..\lib\SDL2_ttf\include;$(ProjectDir)..\..\..\lib\SDL2_mixer\include;$(ProjectDir)..\..\..\source\Engine\;$(ProjectDir)..\..\..\source\;$(ProjectDir)..\..\..\dependencies\</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\..\lib\SDL2\lib\$(PlatformTarget);$(ProjectDir)..\..\..\lib\SDL2_image\lib\$(PlatformTarget);$(ProjectDir)..\..\..\lib\SDL2_ttf\lib\$(PlatformTarget);$(ProjectDir)..\..\..\lib\SDL2_mixer\lib\$(PlatformTarget);</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib;SDL2.lib;SDL2main.lib;</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\dependencies\SDL_FontCache\SDL_FontCache.c" />
+    <ClCompile Include="..\..\..\dependencies\SDL_gfx\SDL2_gfxPrimitives.c" />
+    <ClCompile Include="..\..\..\dependencies\SDL_gfx\SDL2_rotozoom.c" />
+    <ClCompile Include="..\..\..\source\PracticaFinalState.cpp" />
+    <ClCompile Include="..\..\..\source\AnimatedBoid.cpp" />
+    <ClCompile Include="..\..\..\source\Area.cpp" />
+    <ClCompile Include="..\..\..\source\astar.c" />
+    <ClCompile Include="..\..\..\source\BasicAgent.cpp" />
+    <ClCompile Include="..\..\..\source\BehaviorTree.cpp" />
+    <ClCompile Include="..\..\..\source\BTSoloAgent.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\BTCollabAgent.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\BTSimpleSoloAgent.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\BTAgent.cpp" />
+    <ClCompile Include="..\..\..\source\CleanerRobotClean.cpp" />
+    <ClCompile Include="..\..\..\source\CleanerRobotEnergy.cpp" />
+    <ClCompile Include="..\..\..\source\DecisionTree.cpp" />
+    <ClCompile Include="..\..\..\source\DecisionTreeBoid.cpp" />
+    <ClCompile Include="..\..\..\source\DecisionTreeInteractive.cpp" />
+    <ClCompile Include="..\..\..\source\DecisionTreeRealTime.cpp" />
+    <ClCompile Include="..\..\..\source\EllipseEnemyAgent.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\BlackboardAgent.cpp" />
+    <ClCompile Include="..\..\..\source\Boid.cpp" />
+    <ClCompile Include="..\..\..\source\ConeEnemyAgent.cpp" />
+    <ClCompile Include="..\..\..\source\DynamicBlackboard.cpp" />
+    <ClCompile Include="..\..\..\source\EnemyAgent.cpp" />
+    <ClCompile Include="..\..\..\source\Engine\BitmapFont.cpp" />
+    <ClCompile Include="..\..\..\source\Engine\DibAnimation.cpp" />
+    <ClCompile Include="..\..\..\source\Engine\DibAnimationController.cpp" />
+    <ClCompile Include="..\..\..\source\Engine\DibObject.cpp" />
+    <ClCompile Include="..\..\..\source\Engine\DibSprite.cpp" />
+    <ClCompile Include="..\..\..\source\Engine\Game.cpp" />
+    <ClCompile Include="..\..\..\source\Engine\Input.cpp" />
+    <ClCompile Include="..\..\..\source\Engine\Level.cpp" />
+    <ClCompile Include="..\..\..\source\Engine\RotatedText.cpp" />
+    <ClCompile Include="..\..\..\source\Engine\SoundManager.cpp" />
+    <ClCompile Include="..\..\..\source\Engine\StateManager.cpp" />
+    <ClCompile Include="..\..\..\source\Engine\StaticTexture.cpp" />
+    <ClCompile Include="..\..\..\source\Engine\Texture.cpp" />
+    <ClCompile Include="..\..\..\source\Engine\TextureManager.cpp" />
+    <ClCompile Include="..\..\..\source\Engine\Timer.cpp" />
+    <ClCompile Include="..\..\..\source\Engine\Trail.cpp" />
+    <ClCompile Include="..\..\..\source\FlowField.cpp" />
+    <ClCompile Include="..\..\..\source\FlowObstacle.cpp" />
+    <ClCompile Include="..\..\..\source\GameController.cpp" />
+    <ClCompile Include="..\..\..\source\goap.c" />
+    <ClCompile Include="..\..\..\source\GraphUtils.cpp" />
+    <ClCompile Include="..\..\..\source\GridUtils.cpp" />
+    <ClCompile Include="..\..\..\source\HC_DecisionTreeBoid.cpp" />
+    <ClCompile Include="..\..\..\source\HTNUtils.cpp" />
+    <ClCompile Include="..\..\..\source\InfluenceAgent.cpp" />
+    <ClCompile Include="..\..\..\source\InfluenceBoid.cpp" />
+    <ClCompile Include="..\..\..\source\InfluenceMapUtils.cpp" />
+    <ClCompile Include="..\..\..\source\InfluencePlayer.cpp" />
+    <ClCompile Include="..\..\..\source\LOS_Obstacle.cpp" />
+    <ClCompile Include="..\..\..\source\Main.cpp" />
+    <ClCompile Include="..\..\..\source\MenuState.cpp" />
+    <ClCompile Include="..\..\..\source\Miner.cpp" />
+    <ClCompile Include="..\..\..\source\MinerMacrosStateMachine.cpp" />
+    <ClCompile Include="..\..\..\source\MinerOwnedStates.cpp" />
+    <ClCompile Include="..\..\..\source\MinerPointer.cpp" />
+    <ClCompile Include="..\..\..\source\MinerSimplePointer.cpp" />
+    <ClCompile Include="..\..\..\source\Modality.cpp" />
+    <ClCompile Include="..\..\..\source\NavMeshUtils.cpp" />
+    <ClCompile Include="..\..\..\source\Obstacle.cpp" />
+    <ClCompile Include="..\..\..\source\Path.cpp" />
+    <ClCompile Include="..\..\..\source\PointerFSM.cpp" />
+    <ClCompile Include="..\..\..\source\RegionalSenseManager.cpp" />
+    <ClCompile Include="..\..\..\source\Rotator.cpp" />
+    <ClCompile Include="..\..\..\source\Player.cpp" />
+    <ClCompile Include="..\..\..\source\Sensor.cpp" />
+    <ClCompile Include="..\..\..\source\SensorNotification.cpp" />
+    <ClCompile Include="..\..\..\source\SightModality.cpp" />
+    <ClCompile Include="..\..\..\source\Signal.cpp" />
+    <ClCompile Include="..\..\..\source\SignalProp.cpp" />
+    <ClCompile Include="..\..\..\source\SimpleInfluenceMapState.cpp" />
+    <ClCompile Include="..\..\..\source\SimplePath.cpp" />
+    <ClCompile Include="..\..\..\source\StateMachine.cpp" />
+    <ClCompile Include="..\..\..\source\StaticBlackboard.cpp" />
+    <ClCompile Include="..\..\..\source\SteeringGroup.cpp" />
+    <ClCompile Include="..\..\..\source\StrategyUtils.cpp" />
+    <ClCompile Include="..\..\..\source\WarriorPlayer.cpp" />
+    <ClCompile Include="..\..\..\source\UncertaintyAgent.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\dependencies\SDL_FontCache\SDL_FontCache.h" />
+    <ClInclude Include="..\..\..\dependencies\SDL_gfx\SDL2_gfxPrimitives.h" />
+    <ClInclude Include="..\..\..\dependencies\SDL_gfx\SDL2_gfxPrimitives_font.h" />
+    <ClInclude Include="..\..\..\dependencies\SDL_gfx\SDL2_rotozoom.h" />
+    <ClInclude Include="..\..\..\source\PracticaFinalState.h" />
+    <ClInclude Include="..\..\..\source\AdvancedPathfindingUtils.h" />
+    <ClInclude Include="..\..\..\source\AnimatedBoid.h" />
+    <ClInclude Include="..\..\..\source\Area.h" />
+    <ClInclude Include="..\..\..\source\astar.h" />
+    <ClInclude Include="..\..\..\source\BasicAgent.h" />
+    <ClInclude Include="..\..\..\source\BehaviorTree.h" />
+    <ClInclude Include="..\..\..\source\BTSoloAgent.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\BTCollabAgent.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\BTSimpleSoloAgent.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\BTAgent.h" />
+    <ClInclude Include="..\..\..\source\CleanerRobotClean.h" />
+    <ClInclude Include="..\..\..\source\CleanerRobotEnergy.h" />
+    <ClInclude Include="..\..\..\source\DecisionTree.h" />
+    <ClInclude Include="..\..\..\source\DecisionTreeBoid.h" />
+    <ClInclude Include="..\..\..\source\DecisionTreeInteractive.h" />
+    <ClInclude Include="..\..\..\source\DecisionTreeRealTime.h" />
+    <ClInclude Include="..\..\..\source\EllipseEnemyAgent.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\BlackboardAgent.h" />
+    <ClInclude Include="..\..\..\source\AdvancedSteeringUtils.h" />
+    <ClInclude Include="..\..\..\source\Boid.h" />
+    <ClInclude Include="..\..\..\source\CombiningSteeringUtils.h" />
+    <ClInclude Include="..\..\..\source\ConeEnemyAgent.h" />
+    <ClInclude Include="..\..\..\source\Constants.h" />
+    <ClInclude Include="..\..\..\source\DynamicBlackboard.h" />
+    <ClInclude Include="..\..\..\source\EnemyAgent.h" />
+    <ClInclude Include="..\..\..\source\Engine\BaseState.h" />
+    <ClInclude Include="..\..\..\source\Engine\BitmapFont.h" />
+    <ClInclude Include="..\..\..\source\Engine\Colors.h" />
+    <ClInclude Include="..\..\..\source\Engine\DibAnimation.h" />
+    <ClInclude Include="..\..\..\source\Engine\DibAnimationController.h" />
+    <ClInclude Include="..\..\..\source\Engine\DibObject.h" />
+    <ClInclude Include="..\..\..\source\Engine\DibSprite.h" />
+    <ClInclude Include="..\..\..\source\Engine\EngineFramework.h" />
+    <ClInclude Include="..\..\..\source\Engine\Game.h" />
+    <ClInclude Include="..\..\..\source\Engine\GenericPool.h" />
+    <ClInclude Include="..\..\..\source\Engine\Input.h" />
+    <ClInclude Include="..\..\..\source\Engine\Level.h" />
+    <ClInclude Include="..\..\..\source\Engine\RotatedText.h" />
+    <ClInclude Include="..\..\..\source\Engine\SoundManager.h" />
+    <ClInclude Include="..\..\..\source\Engine\StateManager.h" />
+    <ClInclude Include="..\..\..\source\Engine\StaticTexture.h" />
+    <ClInclude Include="..\..\..\source\Engine\Texture.h" />
+    <ClInclude Include="..\..\..\source\Engine\TextureManager.h" />
+    <ClInclude Include="..\..\..\source\Engine\Timer.h" />
+    <ClInclude Include="..\..\..\source\Engine\Trail.h" />
+    <ClInclude Include="..\..\..\source\Engine\Utilities.h" />
+    <ClInclude Include="..\..\..\source\Engine\Vector2D.h" />
+    <ClInclude Include="..\..\..\source\FlowField.h" />
+    <ClInclude Include="..\..\..\source\FlockingUtils.h" />
+    <ClInclude Include="..\..\..\source\FlowFieldUtils.h" />
+    <ClInclude Include="..\..\..\source\FlowObstacle.h" />
+    <ClInclude Include="..\..\..\source\FSMMacros.h" />
+    <ClInclude Include="..\..\..\source\GameController.h" />
+    <ClInclude Include="..\..\..\source\goap.h" />
+    <ClInclude Include="..\..\..\source\GraphUtils.h" />
+    <ClInclude Include="..\..\..\source\GridUtils.h" />
+    <ClInclude Include="..\..\..\source\HC_DecisionTreeBoid.h" />
+    <ClInclude Include="..\..\..\source\HTNUtils.h" />
+    <ClInclude Include="..\..\..\source\InfluenceAgent.h" />
+    <ClInclude Include="..\..\..\source\InfluenceBoid.h" />
+    <ClInclude Include="..\..\..\source\InfluenceMapUtils.h" />
+    <ClInclude Include="..\..\..\source\InfluencePlayer.h" />
+    <ClInclude Include="..\..\..\source\InfluenceTypes.h" />
+    <ClInclude Include="..\..\..\source\LOS_Obstacle.h" />
+    <ClInclude Include="..\..\..\source\MenuState.h" />
+    <ClInclude Include="..\..\..\source\Miner.h" />
+    <ClInclude Include="..\..\..\source\MinerMacrosStateMachine.h" />
+    <ClInclude Include="..\..\..\source\MinerOwnedStates.h" />
+    <ClInclude Include="..\..\..\source\MinerPointer.h" />
+    <ClInclude Include="..\..\..\source\MinerSimplePointer.h" />
+    <ClInclude Include="..\..\..\source\Modality.h" />
+    <ClInclude Include="..\..\..\source\NavMeshUtils.h" />
+    <ClInclude Include="..\..\..\source\Obstacle.h" />
+    <ClInclude Include="..\..\..\source\Path.h" />
+    <ClInclude Include="..\..\..\source\PathfindingHelpers.h" />
+    <ClInclude Include="..\..\..\source\PathfindingUtils.h" />
+    <ClInclude Include="..\..\..\source\PointerFSM.h" />
+    <ClInclude Include="..\..\..\source\PointerState.h" />
+    <ClInclude Include="..\..\..\source\RegionalSenseManager.h" />
+    <ClInclude Include="..\..\..\source\Rotator.h" />
+    <ClInclude Include="..\..\..\source\Player.h" />
+    <ClInclude Include="..\..\..\source\Sensor.h" />
+    <ClInclude Include="..\..\..\source\SensorNotification.h" />
+    <ClInclude Include="..\..\..\source\SightModality.h" />
+    <ClInclude Include="..\..\..\source\Signal.h" />
+    <ClInclude Include="..\..\..\source\SignalProp.h" />
+    <ClInclude Include="..\..\..\source\SimpleBlackboard.h" />
+    <ClInclude Include="..\..\..\source\SimpleInfluenceMapState.h" />
+    <ClInclude Include="..\..\..\source\SimplePath.h" />
+    <ClInclude Include="..\..\..\source\State.h" />
+    <ClInclude Include="..\..\..\source\StateMachine.h" />
+    <ClInclude Include="..\..\..\source\StaticBlackboard.h" />
+    <ClInclude Include="..\..\..\source\SteeringGroup.h" />
+    <ClInclude Include="..\..\..\source\SteeringUtils.h" />
+    <ClInclude Include="..\..\..\source\SteppedPathfindingUtils.h" />
+    <ClInclude Include="..\..\..\source\StrategyUtils.h" />
+    <ClInclude Include="..\..\..\source\WarriorPlayer.h" />
+    <ClInclude Include="..\..\..\source\UncertaintyAgent.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\PracticaFinal.licenseheader" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
