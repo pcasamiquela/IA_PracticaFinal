@@ -11,7 +11,7 @@
 // Add the includes of your states here
 #include "../MenuState.h"
 #include "SimpleInfluenceMapState.h"
-#include "AdvancedInfluenceMapState.h"
+#include "PracticaFInalState.h"
 
 // Add changes to new states here
 void Game::ChangeState(StateCode nextState)
