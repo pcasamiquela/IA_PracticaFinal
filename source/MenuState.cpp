@@ -24,7 +24,6 @@ void MenuState::Clean()
 	// Free fonts
 	FC_FreeFont(fontBig);
 	FC_FreeFont(fontSmall);
-	if (true);
 }
 
 void MenuState::Update(float deltaTime)
