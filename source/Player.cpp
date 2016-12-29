@@ -16,8 +16,9 @@ void Player::Update(float deltaTime)
 	// Call DibSprite Update
 	DibSprite::Update(deltaTime);
 
-	UpdateAngle();
+	//UpdateAngle();
 
+	ManageAnimations();
 	// Wrap player
 	Utils::DoWrap(position);
 }
@@ -50,9 +51,9 @@ void Player::HandleInput()
 
 void Player::UpdateSpeed(float deltaTime)
 {
-	static const float ACCELERATION = 20.0f * 60.0f;
-	static const float FRICTION = 7.5f * 60.0f;
-	static const float MAX_SPEED = 8.0f * 60.0f;
+	static const float ACCELERATION = 60.0f * 60.0f;
+	static const float FRICTION = 25.5f * 60.0f;
+	static const float MAX_SPEED = 4.0f * 60.0f;
 
 	float deltaFriction = FRICTION * deltaTime;
 	float deltaAcceleration = ACCELERATION * deltaTime;
@@ -102,5 +103,18 @@ void Player::UpdateAngle()
 	{
 		angle = FloatUtils::CalculateOrientation(speed);
 	}
+}
+
+void Player::ManageAnimations()
+{
+	if (Input::Instance().GetKey(KeyCode::UpArrow) && Input::Instance().GetKey(KeyCode::RightArrow))	animationController->Play("RunUpDiagonalRight");
+	else if (Input::Instance().GetKey(KeyCode::UpArrow) && Input::Instance().GetKey(KeyCode::LeftArrow))	animationController->Play("RunUpDiagonalLeft");
+	else if (Input::Instance().GetKey(KeyCode::DownArrow)&& Input::Instance().GetKey(KeyCode::RightArrow))	animationController->Play("RunDownDiagonalRight");
+	else if (Input::Instance().GetKey(KeyCode::DownArrow) && Input::Instance().GetKey(KeyCode::LeftArrow))	animationController->Play("RunDownDiagonalLeft");
+	else if (Input::Instance().GetKey(KeyCode::UpArrow))	animationController->Play("RunUp");
+	else if (Input::Instance().GetKey(KeyCode::DownArrow))	animationController->Play("RunDown");
+	else if (Input::Instance().GetKey(KeyCode::LeftArrow))	animationController->Play("RunLeft");
+	else if (Input::Instance().GetKey(KeyCode::RightArrow))	animationController->Play("RunRight");
+	else animationController->Play("Idle");
 }
 

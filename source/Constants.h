@@ -16,8 +16,8 @@
 #define CHECK_PERFORMANCE 0
 
 // Constants
-const int FIXED_WIDTH = 1056;
-const int FIXED_HEIGHT = 740;
+const int FIXED_WIDTH = 1920;
+const int FIXED_HEIGHT = 1080;
 const float GLOBAL_SCALE = 1.0f;
 
 // Convenience for text handling

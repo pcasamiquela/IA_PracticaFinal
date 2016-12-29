@@ -430,9 +430,6 @@
     <ClCompile Include="..\..\..\source\InfluencePlayer.cpp">
       <Filter>Project\Game\AI\LocationBasedKnowledge\Entities</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\source\SimpleInfluenceMapState.cpp">
-      <Filter>Project\Game\States</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\source\PracticaFinalState.cpp">
       <Filter>Project\Game\States</Filter>
     </ClCompile>
@@ -740,9 +737,6 @@
     </ClInclude>
     <ClInclude Include="..\..\..\source\InfluenceTypes.h">
       <Filter>Project\Game\AI\LocationBasedKnowledge\Entities</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\source\SimpleInfluenceMapState.h">
-      <Filter>Project\Game\States</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\source\PracticaFinalState.h">
       <Filter>Project\Game\States</Filter>

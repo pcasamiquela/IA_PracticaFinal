@@ -39,7 +39,7 @@ void Level::LoadFromArray(int* levelArray,
 	{
 		for (int j = 0; j < levelWidth; ++j)
 		{
-			if (*(levelArray + (i*levelWidth) + j) == 1)
+			if (*(levelArray + (i*levelWidth) + j) == 0)
 			{
 				//SDL_Log("%d-%d = %d", i, j, *(levelArray + (i*width) + j));
 				DibSprite* currentTile = new DibSprite

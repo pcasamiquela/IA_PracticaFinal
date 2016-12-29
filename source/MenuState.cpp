@@ -35,17 +35,13 @@ void MenuState::Update(float deltaTime)
 		return;
 	}
 
-	if (Input::Instance().GetKeyDown(KeyCode::S))
+	if (Input::Instance().GetKeyDown(KeyCode::Space))
 	{
-		Game::Instance().ChangeState(SIMPLE_INFLUENCE_STATE);
+		Game::Instance().ChangeState(PRACTICAFINAL_STATE);
 		return;
 	}
 
-	if (Input::Instance().GetKeyDown(KeyCode::A))
-	{
-		Game::Instance().ChangeState(ADVANCED_INFLUENCE_STATE);
-		return;
-	}
+
 
 	//drawPromptCounter += deltaTime;
 	//if (drawPromptCounter > K_DRAW_PROMPT_THRESHOLD)
@@ -62,13 +58,13 @@ void MenuState::Render()
 		FIXED_WIDTH,
 		0,
 		FC_ALIGN_RIGHT,
-		(char*)" > 6.- Location-Based Knowledge");
+		(char*)" > Practica Final");
 
 	FC_DrawAlign(fontBig, Game::Instance().renderer,
 		FIXED_WIDTH / 2,
 		FIXED_HEIGHT / 2 - 100,
 		FC_ALIGN_CENTER,
-		(char*)"Influence Maps");
+		(char*)"Aii ke te pilloooo");
 
 	//if (drawPrompt == true)
 	//{
@@ -76,7 +72,7 @@ void MenuState::Render()
 			FIXED_WIDTH / 2,
 			FIXED_HEIGHT / 2 + 50,
 			FC_ALIGN_CENTER,
-			(char*)"Press S for Simple Playground\n Press A for Advanced Playground");
+			(char*)"Press SPACE to Play");
 	//}	
 }
 

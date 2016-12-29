@@ -10,8 +10,7 @@
 
 // Add the includes of your states here
 #include "../MenuState.h"
-#include "SimpleInfluenceMapState.h"
-#include "PracticaFInalState.h"
+#include "PracticaFinalState.h"
 
 // Add changes to new states here
 void Game::ChangeState(StateCode nextState)
@@ -22,14 +21,10 @@ void Game::ChangeState(StateCode nextState)
 		{
 			manager.ChangeState(new MenuState());
 		} break;
-		case SIMPLE_INFLUENCE_STATE:
+		case PRACTICAFINAL_STATE:
 		{
-			manager.ChangeState(new SimpleInfluenceMapState());
-		} break;
-		case ADVANCED_INFLUENCE_STATE:
-		{
-			manager.ChangeState(new AdvancedInfluenceMapState());
-		} break;
+			manager.ChangeState(new PracticaFinalState());
+		}
 		//case TEMPLATE:
 		//{
 		//	manager.ChangeState(new TEMPLATE());
@@ -90,7 +85,7 @@ bool Game::Init(const char* title, int width, int height, SDL_Color backgroundCo
 		SDL_WINDOWPOS_CENTERED,
 		width,
 		height,
-		SDL_WINDOW_SHOWN);
+		SDL_WINDOW_BORDERLESS);
 
 	if (window == NULL)
 	{

@@ -31,4 +31,5 @@ private:
 	void HandleInput();
 	void UpdateSpeed(float deltaTime);
 	void UpdateAngle();
+	void ManageAnimations();
 };

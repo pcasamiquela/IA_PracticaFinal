@@ -161,7 +161,6 @@
     <ClCompile Include="..\..\..\dependencies\SDL_FontCache\SDL_FontCache.c" />
     <ClCompile Include="..\..\..\dependencies\SDL_gfx\SDL2_gfxPrimitives.c" />
     <ClCompile Include="..\..\..\dependencies\SDL_gfx\SDL2_rotozoom.c" />
-    <ClCompile Include="..\..\..\source\PracticaFinalState.cpp" />
     <ClCompile Include="..\..\..\source\AnimatedBoid.cpp" />
     <ClCompile Include="..\..\..\source\Area.cpp" />
     <ClCompile Include="..\..\..\source\astar.c" />
@@ -244,6 +243,7 @@
     <ClCompile Include="..\..\..\source\Obstacle.cpp" />
     <ClCompile Include="..\..\..\source\Path.cpp" />
     <ClCompile Include="..\..\..\source\PointerFSM.cpp" />
+    <ClCompile Include="..\..\..\source\PracticaFinalState.cpp" />
     <ClCompile Include="..\..\..\source\RegionalSenseManager.cpp" />
     <ClCompile Include="..\..\..\source\Rotator.cpp" />
     <ClCompile Include="..\..\..\source\Player.cpp" />
@@ -252,7 +252,6 @@
     <ClCompile Include="..\..\..\source\SightModality.cpp" />
     <ClCompile Include="..\..\..\source\Signal.cpp" />
     <ClCompile Include="..\..\..\source\SignalProp.cpp" />
-    <ClCompile Include="..\..\..\source\SimpleInfluenceMapState.cpp" />
     <ClCompile Include="..\..\..\source\SimplePath.cpp" />
     <ClCompile Include="..\..\..\source\StateMachine.cpp" />
     <ClCompile Include="..\..\..\source\StaticBlackboard.cpp" />
@@ -271,7 +270,6 @@
     <ClInclude Include="..\..\..\dependencies\SDL_gfx\SDL2_gfxPrimitives.h" />
     <ClInclude Include="..\..\..\dependencies\SDL_gfx\SDL2_gfxPrimitives_font.h" />
     <ClInclude Include="..\..\..\dependencies\SDL_gfx\SDL2_rotozoom.h" />
-    <ClInclude Include="..\..\..\source\PracticaFinalState.h" />
     <ClInclude Include="..\..\..\source\AdvancedPathfindingUtils.h" />
     <ClInclude Include="..\..\..\source\AnimatedBoid.h" />
     <ClInclude Include="..\..\..\source\Area.h" />
@@ -370,6 +368,7 @@
     <ClInclude Include="..\..\..\source\PathfindingUtils.h" />
     <ClInclude Include="..\..\..\source\PointerFSM.h" />
     <ClInclude Include="..\..\..\source\PointerState.h" />
+    <ClInclude Include="..\..\..\source\PracticaFinalState.h" />
     <ClInclude Include="..\..\..\source\RegionalSenseManager.h" />
     <ClInclude Include="..\..\..\source\Rotator.h" />
     <ClInclude Include="..\..\..\source\Player.h" />
@@ -379,7 +378,6 @@
     <ClInclude Include="..\..\..\source\Signal.h" />
     <ClInclude Include="..\..\..\source\SignalProp.h" />
     <ClInclude Include="..\..\..\source\SimpleBlackboard.h" />
-    <ClInclude Include="..\..\..\source\SimpleInfluenceMapState.h" />
     <ClInclude Include="..\..\..\source\SimplePath.h" />
     <ClInclude Include="..\..\..\source\State.h" />
     <ClInclude Include="..\..\..\source\StateMachine.h" />
