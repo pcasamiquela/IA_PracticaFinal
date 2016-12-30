@@ -15,7 +15,7 @@ void PracticaFinalState::Init()
 
 
 	// Load player, enemies and gems
-	LoadEntities((int*)level_01, { 0.0f, 0.0f },
+	LoadEntities((int*)LevelArray, { 0.0f, 0.0f },
 		LEVEL_WIDTH, LEVEL_HEIGHT,
 		15, 26,
 		{ GLOBAL_SCALE, GLOBAL_SCALE });
@@ -49,7 +49,7 @@ void PracticaFinalState::ReadFromFile(LevelState _levelState, int _LevelArray[LE
 	string fileName;
 	switch (_levelState)	{
 	case PracticaFinalState::LEVEL_01:
-		fileName = PathUtils::GetResourcesPath("Levels/Level_01.txt");
+		fileName = "D:/ENTI/5º Semestre/Tecnicas de inteligencia artificial para videojuegos/Demos/PracticaFinal_IA/resources/Levels/Level_01.txt";
 		break;
 	default:
 		string message = "The file " + string(fileName) + " doesn't exists";
@@ -77,7 +77,7 @@ void PracticaFinalState::ReadFromFile(LevelState _levelState, int _LevelArray[LE
 void PracticaFinalState::CreatePlayer(int x, int y) {
 	//Init Player Collision
 	std::string assetPath = PathUtils::GetResourcesPath("images/SnakeSpritesheet.png");
-	player = new Player(FIXED_WIDTH / 2, FIXED_HEIGHT / 2, 15, 26);
+	player = new Player(x, y, 15, 26);
 	player->LoadGraphic(assetPath, "Player", 15, 26, true);
 	player->SetScale(GLOBAL_SCALE * 3, GLOBAL_SCALE * 3);
 	player->ShowCollisionBox(true);
