@@ -23,6 +23,7 @@ public:
 	virtual void Render() override;
 	virtual void Clean() override;
 
+
 private:
 	// Input flags
 	int moveHorizontal;

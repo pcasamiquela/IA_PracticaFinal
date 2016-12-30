@@ -18,6 +18,8 @@
 // Constants
 const int FIXED_WIDTH = 1920;
 const int FIXED_HEIGHT = 1080;
+const int LEVEL_WIDTH = 60;
+const int LEVEL_HEIGHT = 34;
 const float GLOBAL_SCALE = 1.0f;
 
 // Convenience for text handling

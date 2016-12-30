@@ -218,6 +218,7 @@
     <ClCompile Include="..\..\..\source\Engine\TextureManager.cpp" />
     <ClCompile Include="..\..\..\source\Engine\Timer.cpp" />
     <ClCompile Include="..\..\..\source\Engine\Trail.cpp" />
+    <ClCompile Include="..\..\..\source\ErrorManagement.cpp" />
     <ClCompile Include="..\..\..\source\FlowField.cpp" />
     <ClCompile Include="..\..\..\source\FlowObstacle.cpp" />
     <ClCompile Include="..\..\..\source\GameController.cpp" />
@@ -337,6 +338,7 @@
     <ClInclude Include="..\..\..\source\Engine\Trail.h" />
     <ClInclude Include="..\..\..\source\Engine\Utilities.h" />
     <ClInclude Include="..\..\..\source\Engine\Vector2D.h" />
+    <ClInclude Include="..\..\..\source\ErrorManagement.h" />
     <ClInclude Include="..\..\..\source\FlowField.h" />
     <ClInclude Include="..\..\..\source\FlockingUtils.h" />
     <ClInclude Include="..\..\..\source\FlowFieldUtils.h" />

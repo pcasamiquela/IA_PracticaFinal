@@ -117,4 +117,3 @@ void Player::ManageAnimations()
 	else if (Input::Instance().GetKey(KeyCode::RightArrow))	animationController->Play("RunRight");
 	else animationController->Play("Idle");
 }
-
