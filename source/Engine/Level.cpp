@@ -16,6 +16,10 @@ void Level::Render()
 	{
 		solids[i]->Render();
 	}
+	for (int i = 0; i < (int)noSolids.size(); ++i)
+	{
+		noSolids[i]->Render();
+	}
 }
 
 void Level::Clean()
@@ -53,6 +57,7 @@ void Level::LoadFromArray(int* levelArray,
 					tileImageWidth, tileImageHeight, false);
 				currentTile->SetScale(tileImageScale.x, tileImageScale.y);
 				currentTile->moves = false;
+				noSolids.push_back(currentTile);
 			}
 			else if (*(levelArray + (i*levelWidth) + j) == 1)
 			{
@@ -68,10 +73,12 @@ void Level::LoadFromArray(int* levelArray,
 					tileImageWidth, tileImageHeight, false);
 				currentTile->SetScale(tileImageScale.x, tileImageScale.y);
 				currentTile->moves = false;
-				currentTile->ShowCollisionBox(true);
+				//currentTile->ShowCollisionBox(true);
 				solids.push_back(currentTile);
 			}
-			else if (*(levelArray + (i*levelWidth) + j) == 2)
+			else if (*(levelArray + (i*levelWidth) + j) == 2 || 
+				*(levelArray + (i*levelWidth) + j) == 5 ||
+				*(levelArray + (i*levelWidth) + j) == 6)
 			{
 				tileImagePath = PathUtils::GetResourcesPath("images/Room_Tile.png");
 				tileImageID = "Room";
@@ -85,6 +92,7 @@ void Level::LoadFromArray(int* levelArray,
 					tileImageWidth, tileImageHeight, false);
 				//currentTile->SetScale(tileImageScale.x, tileImageScale.y);
 				currentTile->moves = false;
+				noSolids.push_back(currentTile);
 			}
 			else if (*(levelArray + (i*levelWidth) + j) == 3)
 			{

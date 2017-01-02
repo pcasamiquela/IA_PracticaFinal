@@ -26,4 +26,5 @@ public:
 		int tileImageWidth, int tileImageHeight, Vector2D tileImageScale);
 
 	std::vector<DibObject*> solids;
+	std::vector<DibObject*> noSolids;
 };
