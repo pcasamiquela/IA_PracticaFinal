@@ -65,8 +65,8 @@ public:
 	void Setup() override;
 
 	// Constants
-	const float K_MAX_SPEED = 4.0f * 60.0f;
-	const float K_MAX_STEER_FORCE = 20.0f * 60.0f;
+	const float K_MAX_SPEED = 3.5f * 60.0f;
+	const float K_MAX_STEER_FORCE = 200.0f * 60.0f;
 
 	// State fields
 	Behavior currentBehavior = SEEK_KINEMATIC;

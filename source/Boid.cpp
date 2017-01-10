@@ -496,7 +496,7 @@ void Boid::DoSimplePathFollowing(float deltaTime)
 	}
 
 	// Seek target segment
-	steeringForce = SteeringUtils::DoKinematicSeek(targetSegment, position, K_MAX_SPEED);
+	steeringForce = SteeringUtils::DoSteeringSeek(targetSegment, position, speed, K_MAX_SPEED, K_MAX_STEER_FORCE);
 #else
 	steeringForce = AdvancedSteeringUtils::DoSimplePathFollowing(position, speed, K_MAX_SPEED, K_MAX_STEER_FORCE,
 		simplePath, currentSegment, pathDirection, K_SIMPLE_PATH_ARRIVAL_DISTANCE);

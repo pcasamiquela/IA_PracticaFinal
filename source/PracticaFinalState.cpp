@@ -53,7 +53,7 @@ void PracticaFinalState::ReadFromFile(LevelState _levelState, int _LevelArray[LE
 	string fileName;
 	switch (_levelState)	{
 	case PracticaFinalState::LEVEL_01:
-		fileName = "D:/ENTI/5º Semestre/Tecnicas de inteligencia artificial para videojuegos/Demos/PracticaFinal_IA/resources/Levels/Level_01.txt";
+		fileName = "./../../../resources/Levels/Level_01.txt";
 		break;
 	default:
 		string message = "The file " + string(fileName) + " doesn't exists";
@@ -105,7 +105,9 @@ void PracticaFinalState::CreatePlayer(int x, int y) {
 	player->ShowCollisionBox(true);
 	player->GetCollisionBox();
 	player->SetSolidCollisions(level_01->solids);
-
+	player->SetWidth(15);
+	player->SetHeight(26/2);
+	
 	//Init Player Animation
 	int frameSpeed = 10;
 	player->animationController->Add("RunRight", 2, { 1,2,3,4 }, frameSpeed, true);
