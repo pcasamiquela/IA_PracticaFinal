@@ -1,3 +1,5 @@
 ﻿  PracticaFinalState.cpp
-  LocationInfluenceMaps.vcxproj -> C:\Users\pcasamiquela\Desktop\SourceTree\IA_PracticaFinal\project\LocationInfluenceMaps\..\..\bin\PracticaFinal.exe
-  LocationInfluenceMaps.vcxproj -> C:\Users\pcasamiquela\Desktop\SourceTree\IA_PracticaFinal\project\LocationInfluenceMaps\..\..\bin\PracticaFinal.pdb (Partial PDB)
+d:\enti\5º semestre\tecnicas de inteligencia artificial para videojuegos\demos\practicafinal_ia\source\practicafinalstate.cpp(36): warning C4018: '<': signed/unsigned mismatch
+d:\enti\5º semestre\tecnicas de inteligencia artificial para videojuegos\demos\practicafinal_ia\source\practicafinalstate.cpp(47): warning C4018: '<': signed/unsigned mismatch
+  LocationInfluenceMaps.vcxproj -> D:\ENTI\5º Semestre\Tecnicas de inteligencia artificial para videojuegos\Demos\PracticaFinal_IA\project\LocationInfluenceMaps\..\..\bin\PracticaFinal.exe
+  LocationInfluenceMaps.vcxproj -> D:\ENTI\5º Semestre\Tecnicas de inteligencia artificial para videojuegos\Demos\PracticaFinal_IA\project\LocationInfluenceMaps\..\..\bin\PracticaFinal.pdb (Partial PDB)

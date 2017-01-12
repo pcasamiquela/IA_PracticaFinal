@@ -12,14 +12,13 @@ void PracticaFinalState::Init()
 	assetPath = PathUtils::GetResourcesPath("images/Floor_Tile.png");
 	level_01 = new Level();
 	level_01->LoadFromArray((int*)LevelArray, { 0.0f, 0.0f }, LEVEL_WIDTH, LEVEL_HEIGHT, assetPath, "Floor", 32, 32, { GLOBAL_SCALE, GLOBAL_SCALE });
-	soldiersPool = new GenericPool<Boid>(numSoldiers);
+	//soldiersPool = new vector<ConeEnemyAgent>;
 
 	// Load player, enemies and gems
 	LoadEntities((int*)LevelArray, { 0.0f, 0.0f },
 		LEVEL_WIDTH, LEVEL_HEIGHT,
 		32, 32,
 		{ GLOBAL_SCALE, GLOBAL_SCALE });
-
 
 }
 
@@ -34,8 +33,8 @@ void PracticaFinalState::Update(float deltaTime)
 		Game::Instance().ChangeState(MENU_STATE);
 		return;
 	}
-	for (int i = 0; i < soldiersPool->numElements; i++) {
-		Boid *currentSoldiers = &soldiersPool->pool[i];
+	for (int i = 0; i < soldiersPool.size(); i++) {
+		ConeEnemyAgent *currentSoldiers = soldiersPool[i];
 		currentSoldiers->Update(deltaTime);
 	}
 	player->Update(deltaTime);
@@ -45,7 +44,9 @@ void PracticaFinalState::Render()
 {
 	//cambiar por cases
 	level_01->Render();
-	soldiersPool->Render();
+	for (int i = 0; i < soldiersPool.size(); i++) {
+		soldiersPool[i]->Render();
+	}
 	player->Render();
 }
 
@@ -76,7 +77,7 @@ void PracticaFinalState::ReadFromFile(LevelState _levelState, int _LevelArray[LE
 		for (int i = 0; i < numSoldiers; i++) {
 			SimplePath tempSimplePath;
 			for (int j = 0; j < numNodes[i]; j++) {
-				file >> tempVector.x >> tempVector.y;
+				file >> tempVector.x  >> tempVector.y;
 				SimplePath_AddPoint(&tempSimplePath, tempVector*32);
 			}
 			simplePathMap.insert(make_pair(i, tempSimplePath));
@@ -125,14 +126,14 @@ void PracticaFinalState::CreatePlayer(int x, int y) {
 }
 
 void PracticaFinalState::CreateSoldier(int soldierNumber) {
-	Boid* currentSoldier = soldiersPool->GetElement();
-	if (currentSoldier != nullptr) {
-		currentSoldier->SetPosition(simplePathMap.find(soldierNumber)->second.pathArray[0].x, simplePathMap.find(soldierNumber)->second.pathArray[0].y);
-		currentSoldier->SetActive(true);
-		currentSoldier->targetPosition = &Vector2D(0.0f, 0.0f);
-		currentSoldier->SetBehavior(SIMPLE_PATH_FOLLOWING);
-		currentSoldier->simplePath = &simplePathMap.find(soldierNumber)->second;
-		currentSoldier->SetSolidCollisions(level_01->solids);
+	soldiersPool.push_back(new ConeEnemyAgent(0, 0, 0, 0, &questionTexture));
+	if (soldiersPool[soldierNumber] != nullptr) {
+		soldiersPool[soldierNumber]->SetPosition(simplePathMap.find(soldierNumber)->second.pathArray[0].x, simplePathMap.find(soldierNumber)->second.pathArray[0].y);
+		soldiersPool[soldierNumber]->SetActive(true);
+		soldiersPool[soldierNumber]->targetPosition = &Vector2D(0.0f, 0.0f);
+		soldiersPool[soldierNumber]->SetBehavior(SIMPLE_PATH_FOLLOWING);
+		soldiersPool[soldierNumber]->simplePath = &simplePathMap.find(soldierNumber)->second;
+		soldiersPool[soldierNumber]->SetSolidCollisions(level_01->solids);
 	}
 }
 

@@ -44,6 +44,19 @@ bool ConeEnemyAgent::TargetDetected()
 	return false;
 }
 
+void ConeEnemyAgent::Setup()
+{
+	SDL_Log("Boid - Setup");
+	SetPosition(0.0f, 0.0f);
+	SetWidth(32);
+	SetHeight(24);
+	std::string assetPath = PathUtils::GetResourcesPath("images/Boid.png");
+	LoadGraphic(assetPath, "Boid", 32, 24, false);
+	SetScale(GLOBAL_SCALE, GLOBAL_SCALE);
+	SetOrigin(0.5f, 0.5f);
+	SetActive(false);
+}
+
 void ConeEnemyAgent::RenderVisionCone(Uint32 coneColor)
 {
 	Vector2D triangleX1 = { position.x + visionConeHeight, position.y - tanf(visionConeHalfAngle * DEG2RAD) * visionConeHeight };

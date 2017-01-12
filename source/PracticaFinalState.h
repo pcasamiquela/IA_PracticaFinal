@@ -1,6 +1,7 @@
 #include "Engine/EngineFramework.h"
 #include "Player.h"
 #include "Boid.h"
+#include "ConeEnemyAgent.h"
 #include "ErrorManagement.h"
 #include <fstream>
 #include <iostream>
@@ -19,16 +20,18 @@ private:
 	{
 		LEVEL_01
 	};
-
+	//Textures
+	Texture questionTexture;
 	//Entities
 	Player *player;
 	Player *playerToShow;
-	GenericPool<Boid>* soldiersPool;
+	//GenericPool<Boid>* soldiersPool;
+	vector<ConeEnemyAgent*> soldiersPool;
 	Level *level_01;
 	int numSoldiers;
 	vector <int> numNodes;
 	//Simple Path
-	vector <vector<SimplePath>> simplePathVector;
+	//vector <vector<SimplePath>> simplePathVector;
 	map<int, SimplePath> simplePathMap;
 	SimplePath path1;
 	StateManager manager;
