@@ -39,7 +39,7 @@ public:
 	void FlipHorizontal();
 	void FlipVertical();
 	void ShowSpriteBox(bool show, Uint32 color = Colors::ALIZARIN);
-
+	bool isWall = false;
 protected:
 	// Animation variables
 	bool animates;

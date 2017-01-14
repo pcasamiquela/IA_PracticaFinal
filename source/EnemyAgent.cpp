@@ -53,6 +53,25 @@ void EnemyAgent::Update(float deltaTime)
 			ChangeState(PATROL_STATE);
 		}
 	}break;
+	case PATROL_PATH_FINDING_STATE:
+	{
+
+
+
+
+
+	}break;
+	case  SEARCH_LASTPOS_STATE:
+	{
+		
+
+
+
+
+
+
+
+	}break;
 	default:
 	{
 		// Do nothing
@@ -100,7 +119,7 @@ void EnemyAgent::ChangeState(EnemyState state)
 		// Reset path following to 
 		// pick up path at nearest point
 		pathFollowingStarted = false;
-		SetBehavior(Behavior::PATH_FOLLOWING);
+		SetBehavior(Behavior::SIMPLE_PATH_FOLLOWING);
 	} break;
 	case AMUSED_STATE:
 	{
@@ -114,6 +133,16 @@ void EnemyAgent::ChangeState(EnemyState state)
 		SetBehavior(Behavior::ARRIVE);
 		targetDetected = true;
 	} break;
+	case SEARCH_LASTPOS_STATE:
+	{
+		SDL_Log("State_Search_LastPos_Enter");
+		SetBehavior(Behavior::SIMPLE_PATH_FOLLOWING);
+		targetDetected = false;
+	}break;
+	case PATROL_PATH_FINDING_STATE:
+	{
+		SetBehavior(Behavior::SIMPLE_PATH_FOLLOWING);
+	}
 	default:
 	{
 		// Do nothing

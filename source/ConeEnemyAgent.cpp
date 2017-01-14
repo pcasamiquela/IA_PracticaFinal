@@ -67,7 +67,7 @@ void ConeEnemyAgent::RenderVisionCone(Uint32 coneColor)
 	filledTrigonColor(Game::Instance().renderer, position.x, position.y,
 		rotatedTriangle1.x, rotatedTriangle1.y,
 		rotatedTriangle2.x, rotatedTriangle2.y,
-		targetDetected ? Colors::ALIZARIN : coneColor);
+		targetDetected ? Colors::SetAlpha(Colors::ALIZARIN,600):coneColor);
 }
 
 void ConeEnemyAgent::RenderLOS(Uint32 color)

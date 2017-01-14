@@ -73,6 +73,7 @@ void Level::LoadFromArray(int* levelArray,
 					tileImageWidth, tileImageHeight, false);
 				currentTile->SetScale(tileImageScale.x, tileImageScale.y);
 				currentTile->moves = false;
+				currentTile->isWall = true;
 				//currentTile->ShowCollisionBox(true);
 				solids.push_back(currentTile);
 			}
@@ -108,6 +109,7 @@ void Level::LoadFromArray(int* levelArray,
 					tileImageWidth, tileImageHeight, false);
 				currentTile->SetScale(tileImageScale.x, tileImageScale.y);
 				currentTile->moves = false;
+				currentTile->isWall = true;
 				//currentTile->ShowCollisionBox(true);
 				solids.push_back(currentTile);
 			}
@@ -125,6 +127,7 @@ void Level::LoadFromArray(int* levelArray,
 					tileImageWidth, tileImageHeight, false);
 				currentTile->SetScale(tileImageScale.x, tileImageScale.y);
 				currentTile->moves = false;
+				currentTile->isWall = true;
 				//currentTile->ShowCollisionBox(true);
 				solids.push_back(currentTile);
 			}

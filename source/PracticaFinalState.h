@@ -23,7 +23,7 @@ private:
 	//Textures
 	Texture questionTexture;
 	//Obstacles
-	LOS_Obstacle obstacle;
+	LOS_Obstacle *obstacle;
 	int obstacleNumber;
 	//Entities
 	Player *player;

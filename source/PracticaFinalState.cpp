@@ -11,14 +11,19 @@ void PracticaFinalState::Init()
 	ReadFromFile(LEVEL_01, LevelArray);
 	assetPath = PathUtils::GetResourcesPath("images/Floor_Tile.png");
 	level_01 = new Level();
-	level_01->LoadFromArray((int*)LevelArray, { 0.0f, 0.0f }, LEVEL_WIDTH, LEVEL_HEIGHT, assetPath, "Floor", 32, 32, { GLOBAL_SCALE, GLOBAL_SCALE });
+	level_01->LoadFromArray((int*)LevelArray, { 0.0f, 0.0f }, LEVEL_WIDTH, LEVEL_HEIGHT, assetPath, "Floor", CELL_WIDTH, CELL_HEIGHT, { GLOBAL_SCALE, GLOBAL_SCALE });
 	//soldiersPool = new vector<ConeEnemyAgent>;
-	//obstacle = LOS_Obstacle_Create(&level_01->solids);
+
 	obstacleNumber = level_01->solids.size();
+	obstacle = new LOS_Obstacle[obstacleNumber];
+	for (int i = 0; i < obstacleNumber; i++) {
+		obstacle[i] = LOS_Obstacle_Create(level_01->solids[i]->GetPosition(), CELL_WIDTH, CELL_HEIGHT);
+	}
+	
 	// Load player, enemies and gems
 	LoadEntities((int*)LevelArray, { 0.0f, 0.0f },
 		LEVEL_WIDTH, LEVEL_HEIGHT,
-		32, 32,
+		CELL_WIDTH, CELL_HEIGHT,
 		{ GLOBAL_SCALE, GLOBAL_SCALE });
 	for (int i = 0; i < numSoldiers; i++) {
 		CreateSoldier(i);
@@ -83,7 +88,7 @@ void PracticaFinalState::ReadFromFile(LevelState _levelState, int _LevelArray[LE
 			SimplePath tempSimplePath;
 			for (int j = 0; j < numNodes[i]; j++) {
 				file >> tempVector.x  >> tempVector.y;
-				SimplePath_AddPoint(&tempSimplePath, tempVector*32 + 16.0f);
+				SimplePath_AddPoint(&tempSimplePath, tempVector*CELL_WIDTH + 16.0f);
 			}
 			simplePathMap.insert(make_pair(i, tempSimplePath));
 		}
@@ -141,7 +146,8 @@ void PracticaFinalState::CreateSoldier(int soldierNumber) {
 		soldiersPool[soldierNumber]->simplePath = &simplePathMap.find(soldierNumber)->second;
 		soldiersPool[soldierNumber]->SetSolidCollisions(level_01->solids);
 		soldiersPool[soldierNumber]->losObstacleArraySize = &obstacleNumber;
-		soldiersPool[soldierNumber]->losObstacleArray = (LOS_Obstacle*)&level_01->solids;	
+		soldiersPool[soldierNumber]->losObstacleArray = obstacle;
+			//(LOS_Obstacle*)level_01->solids[i];
 	}
 }
 

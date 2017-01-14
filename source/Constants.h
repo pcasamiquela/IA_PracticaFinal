@@ -14,6 +14,8 @@
 // Enable CHECK_PERFORMANCE 
 // to draw Update and Render timing statistics
 #define CHECK_PERFORMANCE 0
+#define CELL_WIDTH 32
+#define CELL_HEIGHT 32
 
 // Constants
 const int FIXED_WIDTH = 1920;

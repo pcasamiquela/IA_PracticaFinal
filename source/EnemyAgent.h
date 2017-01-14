@@ -17,6 +17,8 @@ enum EnemyState
 	PATROL_STATE,
 	PURSUE_STATE,
 	AMUSED_STATE,
+	PATROL_PATH_FINDING_STATE,
+	SEARCH_LASTPOS_STATE
 };
 
 class EnemyAgent : public Boid
