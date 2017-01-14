@@ -14,7 +14,7 @@ void ConeEnemyAgent::Update(float deltaTime)
 
 void ConeEnemyAgent::Render()
 {
-	RenderVisionCone(Colors::SUNFLOWER);
+	RenderVisionCone(Colors::SetAlpha(Colors::SUNFLOWER,600));
 	if (targetDetected)
 	{
 		RenderLOS(Colors::WISTERIA);

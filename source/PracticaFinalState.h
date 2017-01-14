@@ -22,10 +22,13 @@ private:
 	};
 	//Textures
 	Texture questionTexture;
+	//Obstacles
+	LOS_Obstacle obstacle;
+	int obstacleNumber;
 	//Entities
 	Player *player;
 	Player *playerToShow;
-	//GenericPool<Boid>* soldiersPool;
+	//GenericPool<Boid>* soldiersPool
 	vector<ConeEnemyAgent*> soldiersPool;
 	Level *level_01;
 	int numSoldiers;

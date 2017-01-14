@@ -26,7 +26,7 @@ public:
 private:
 	// Perception fields
 	// Vision
-	float visionConeHeight = 160.0f;
+	float visionConeHeight = 200.0f;
 	//float visionConeHeight = 300.0f;
 	float visionConeHalfAngle = 40.0f;
 

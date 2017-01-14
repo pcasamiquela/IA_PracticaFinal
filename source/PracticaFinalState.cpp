@@ -13,12 +13,16 @@ void PracticaFinalState::Init()
 	level_01 = new Level();
 	level_01->LoadFromArray((int*)LevelArray, { 0.0f, 0.0f }, LEVEL_WIDTH, LEVEL_HEIGHT, assetPath, "Floor", 32, 32, { GLOBAL_SCALE, GLOBAL_SCALE });
 	//soldiersPool = new vector<ConeEnemyAgent>;
-
+	//obstacle = LOS_Obstacle_Create(&level_01->solids);
+	obstacleNumber = level_01->solids.size();
 	// Load player, enemies and gems
 	LoadEntities((int*)LevelArray, { 0.0f, 0.0f },
 		LEVEL_WIDTH, LEVEL_HEIGHT,
 		32, 32,
 		{ GLOBAL_SCALE, GLOBAL_SCALE });
+	for (int i = 0; i < numSoldiers; i++) {
+		CreateSoldier(i);
+	}
 
 }
 
@@ -34,8 +38,9 @@ void PracticaFinalState::Update(float deltaTime)
 		return;
 	}
 	for (int i = 0; i < soldiersPool.size(); i++) {
-		ConeEnemyAgent *currentSoldiers = soldiersPool[i];
-		currentSoldiers->Update(deltaTime);
+	////	/*ConeEnemyAgent *currentSoldiers = soldiersPool[i];
+	////	currentSoldiers->Update(deltaTime);*/
+		soldiersPool[i]->Update(deltaTime);
 	}
 	player->Update(deltaTime);
 }
@@ -78,7 +83,7 @@ void PracticaFinalState::ReadFromFile(LevelState _levelState, int _LevelArray[LE
 			SimplePath tempSimplePath;
 			for (int j = 0; j < numNodes[i]; j++) {
 				file >> tempVector.x  >> tempVector.y;
-				SimplePath_AddPoint(&tempSimplePath, tempVector*32);
+				SimplePath_AddPoint(&tempSimplePath, tempVector*32 + 16.0f);
 			}
 			simplePathMap.insert(make_pair(i, tempSimplePath));
 		}
@@ -128,12 +133,15 @@ void PracticaFinalState::CreatePlayer(int x, int y) {
 void PracticaFinalState::CreateSoldier(int soldierNumber) {
 	soldiersPool.push_back(new ConeEnemyAgent(0, 0, 0, 0, &questionTexture));
 	if (soldiersPool[soldierNumber] != nullptr) {
+		soldiersPool[soldierNumber]->Setup();
 		soldiersPool[soldierNumber]->SetPosition(simplePathMap.find(soldierNumber)->second.pathArray[0].x, simplePathMap.find(soldierNumber)->second.pathArray[0].y);
 		soldiersPool[soldierNumber]->SetActive(true);
-		soldiersPool[soldierNumber]->targetPosition = &Vector2D(0.0f, 0.0f);
+		soldiersPool[soldierNumber]->targetPosition = &player->position;
 		soldiersPool[soldierNumber]->SetBehavior(SIMPLE_PATH_FOLLOWING);
 		soldiersPool[soldierNumber]->simplePath = &simplePathMap.find(soldierNumber)->second;
 		soldiersPool[soldierNumber]->SetSolidCollisions(level_01->solids);
+		soldiersPool[soldierNumber]->losObstacleArraySize = &obstacleNumber;
+		soldiersPool[soldierNumber]->losObstacleArray = (LOS_Obstacle*)&level_01->solids;	
 	}
 }
 
@@ -157,11 +165,11 @@ void PracticaFinalState::LoadEntities(int* levelArray, Vector2D levelOrigin,
 					levelOrigin.y + tileImageHeight * i * tileImageScale.y
 					+ tileImageHeight * 0.5f * tileImageScale.y);
 			}
-			else if (*(levelArray + (i*levelWidth) + j) == 6)
+			/*else if (*(levelArray + (i*levelWidth) + j) == 6)
 			{
 				CreateSoldier(currentSoldier);
 				currentSoldier++;
-			}
+			}*/
 
 			//else if (*(levelArray + (i*levelWidth) + j) == 2)
 			//{
