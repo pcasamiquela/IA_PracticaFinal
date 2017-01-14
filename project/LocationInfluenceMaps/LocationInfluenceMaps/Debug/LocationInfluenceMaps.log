@@ -1,6 +1,16 @@
 ﻿  AnimatedBoid.cpp
-  Area.cpp
-  FlowField.cpp
+  BTAgent.cpp
+  BasicAgent.cpp
+  Boid.cpp
+  ConeEnemyAgent.cpp
+  DecisionTreeBoid.cpp
+  EnemyAgent.cpp
+  Game.cpp
+  HC_DecisionTreeBoid.cpp
+  InfluenceBoid.cpp
+  PracticaFinalState.cpp
+d:\pol_b\documents\enti\sourcetree\ia\practicafinal\source\practicafinalstate.cpp(55): warning C4018: '<': signed/unsigned mismatch
+d:\pol_b\documents\enti\sourcetree\ia\practicafinal\source\practicafinalstate.cpp(67): warning C4018: '<': signed/unsigned mismatch
   Generating Code...
   BTCollabAgent.cpp
   BTSimpleSoloAgent.cpp

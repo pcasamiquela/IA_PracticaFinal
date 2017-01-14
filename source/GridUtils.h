@@ -8,6 +8,7 @@
 #pragma once
 
 #include "Engine/EngineFramework.h"
+#include "Constants.h"
 #include <vector>
 
 #define GRID_WIDTH 20 // Cell number
@@ -41,10 +42,10 @@ void Node_Reset(Node* node);
 
 struct Grid
 {
-	int width = GRID_WIDTH;
-	int height = GRID_HEIGHT;
+	int width = LEVEL_WIDTH;
+	int height = LEVEL_HEIGHT;
 	int cellSize = GRID_SIZE;
-	Node array[GRID_WIDTH][GRID_HEIGHT];
+	Node array[LEVEL_WIDTH][LEVEL_HEIGHT];
 	std::vector<Node*> wallNodes;
 };
 

@@ -13,6 +13,7 @@ Notice: (C) Copyright 2016 by David Collado Ochoa. All Rights Reserved.
 #include "Obstacle.h"
 #include "FlowField.h"
 #include "SteeringGroup.h"
+#include "GridUtils.h"
 
 enum Behavior
 {
@@ -63,6 +64,7 @@ public:
 	virtual void Render() override;
 	virtual void Clean() override;
 	void Setup() override;
+	std::vector<Node*> enemyPath;
 
 	// Constants
 	const float K_MAX_SPEED = 3.5f * 60.0f;

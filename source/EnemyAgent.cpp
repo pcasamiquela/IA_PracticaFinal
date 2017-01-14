@@ -120,27 +120,32 @@ void EnemyAgent::ChangeState(EnemyState state)
 		// pick up path at nearest point
 		pathFollowingStarted = false;
 		SetBehavior(Behavior::SIMPLE_PATH_FOLLOWING);
+		CallPathFinding = false;
 	} break;
 	case AMUSED_STATE:
 	{
 		SDL_Log("StateAmused_Enter");
 		targetLost = true;
 		SetBehavior(Behavior::NONE);
+		CallPathFinding = false;
 	} break;
 	case PURSUE_STATE:
 	{
 		SDL_Log("StatePursue_Enter");
 		SetBehavior(Behavior::ARRIVE);
 		targetDetected = true;
+		CallPathFinding = false;
 	} break;
 	case SEARCH_LASTPOS_STATE:
 	{
 		SDL_Log("State_Search_LastPos_Enter");
 		SetBehavior(Behavior::SIMPLE_PATH_FOLLOWING);
 		targetDetected = false;
+		CallPathFinding = false;
 	}break;
 	case PATROL_PATH_FINDING_STATE:
 	{
+		CallPathFinding = true;
 		SetBehavior(Behavior::SIMPLE_PATH_FOLLOWING);
 	}
 	default:

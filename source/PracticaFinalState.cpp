@@ -4,6 +4,11 @@ static int LevelArray[LEVEL_WIDTH][LEVEL_HEIGHT]  { 0 };
 
 void PracticaFinalState::Init()
 {
+	//Grid init
+	Grid_Init(&grid);
+
+
+
 
 	std::string assetPath;
 	numSoldiers = 0;
@@ -42,6 +47,11 @@ void PracticaFinalState::Update(float deltaTime)
 		Game::Instance().ChangeState(MENU_STATE);
 		return;
 	}
+
+	heuristicFunction = HeuristicUtils::ManhattanDistance;
+	//steppedExecutionFinished = SteppedPathfindingUtils::SteppedPathfindAStar(&grid, path, heuristicFunction, useOptimization, allowDiagonals);
+	//path = PathfindingUtils::PathfindAStar(&grid, startNode, endNode, heuristicFunction, useOptimization, allowDiagonals);
+
 	for (int i = 0; i < soldiersPool.size(); i++) {
 	////	/*ConeEnemyAgent *currentSoldiers = soldiersPool[i];
 	////	currentSoldiers->Update(deltaTime);*/
@@ -106,6 +116,17 @@ void PracticaFinalState::ReadFromFile(LevelState _levelState, int _LevelArray[LE
 		ErrorManagement::errorRunTime(message);
 	}
 }
+void PracticaFinalState::StartPathfinding(ConeEnemyAgent &currentEnemy, Vector2D targetPos) {
+	int startX = currentEnemy.GetPosition().x / GRID_SIZE;
+	int startY = currentEnemy.GetPosition().y / GRID_SIZE;
+	int endX = targetPos.x / GRID_SIZE;
+	int endY = targetPos.y / GRID_SIZE;
+
+	Node* startNode = &grid.array[startX][startY];
+	Node* endNode = &grid.array[endX][endY];
+
+	currentEnemy.enemyPath = PathfindingUtils::PathfindAStar(&grid, startNode, endNode, heuristicFunction, false, true, 1.0f, 1.0f);
+}
 
 void PracticaFinalState::CreatePlayer(int x, int y) {
 	//Init Player Collision
@@ -113,12 +134,11 @@ void PracticaFinalState::CreatePlayer(int x, int y) {
 	player = new Player(x, y, 15, 26);
 	player->LoadGraphic(assetPath, "Player", 15, 26, true);
 	player->SetScale(GLOBAL_SCALE * 3, GLOBAL_SCALE * 3);
-	player->ShowCollisionBox(true);
+	//player->ShowCollisionBox(true);
 	player->GetCollisionBox();
 	player->SetSolidCollisions(level_01->solids);
 	player->SetWidth(15);
 	player->SetHeight(26/2);
-	
 	//Init Player Animation
 	int frameSpeed = 10;
 	player->animationController->Add("RunRight", 2, { 1,2,3,4 }, frameSpeed, true);
@@ -153,6 +173,22 @@ void PracticaFinalState::CreateSoldier(int soldierNumber) {
 
 void PracticaFinalState::ReadPathFromFile(int cont) {
 
+}
+void PracticaFinalState::CreateGrid() {
+	Grid_Init(&grid);
+
+	for (int i = 0; i < LEVEL_WIDTH; i++) {
+		for (int j = 0; j < LEVEL_HEIGHT; j++) {
+			if (LevelArray[i][j] == 1 || LevelArray[i][j] == 3 || LevelArray[i][j] == 4) {
+				grid.array[i][j].isWall = true;
+				grid.array[i][j].weight = 9.0f;
+			}
+			else {
+				grid.array[i][j].isWall = false;
+			}
+
+		}
+	}
 }
 
 void PracticaFinalState::LoadEntities(int* levelArray, Vector2D levelOrigin,

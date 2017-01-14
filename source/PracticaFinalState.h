@@ -6,6 +6,8 @@
 #include <fstream>
 #include <iostream>
 #include <map>
+#include "PathfindingUtils.h"
+
 using namespace std;
 
 class PracticaFinalState : public BaseState{
@@ -20,6 +22,13 @@ private:
 	{
 		LEVEL_01
 	};
+	//PathFinding
+
+	HeuristicFunction heuristicFunction = &HeuristicUtils::ManhattanDistance;
+
+	bool steppedExecutionFinished = true;
+	
+	Grid grid;
 	//Textures
 	Texture questionTexture;
 	//Obstacles
@@ -43,4 +52,6 @@ private:
 	void CreateSoldier(int soldierNumber);
 	void LoadEntities(int* levelArray, Vector2D levelOrigin,int levelWidth, int levelHeight,int tileImageWidth, int tileImageHeight, Vector2D tileImageScale);
 	void ReadPathFromFile(int cont);
+	void CreateGrid();
+	void StartPathfinding(ConeEnemyAgent &currentEnemy, Vector2D targetPos);
 };

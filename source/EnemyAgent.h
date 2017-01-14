@@ -36,6 +36,7 @@ public:
 
 	virtual bool TargetDetected() = 0;
 	virtual bool HasLOSWithTarget();
+	bool CallPathFinding = false;
 
 	// Line of Sight
 	LOS_Obstacle* losObstacleArray;
