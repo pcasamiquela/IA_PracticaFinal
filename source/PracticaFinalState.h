@@ -27,9 +27,9 @@ private:
 	HeuristicFunction heuristicFunction = &HeuristicUtils::ManhattanDistance;
 
 	bool steppedExecutionFinished = true;
-	
 	Grid grid;
 	//Textures
+	Texture arrowTexture;
 	Texture questionTexture;
 	//Obstacles
 	LOS_Obstacle *obstacle;
@@ -44,6 +44,8 @@ private:
 	vector <int> numNodes;
 	//Simple Path
 	//vector <vector<SimplePath>> simplePathVector;
+	SimplePath tempPath;
+
 	map<int, SimplePath> simplePathMap;
 	SimplePath path1;
 	StateManager manager;
@@ -52,6 +54,7 @@ private:
 	void CreateSoldier(int soldierNumber);
 	void LoadEntities(int* levelArray, Vector2D levelOrigin,int levelWidth, int levelHeight,int tileImageWidth, int tileImageHeight, Vector2D tileImageScale);
 	void ReadPathFromFile(int cont);
-	void CreateGrid();
+	void CreateGrid(int* levelArray);
 	void StartPathfinding(ConeEnemyAgent &currentEnemy, Vector2D targetPos);
+	void ResetPathfinding(ConeEnemyAgent& currentEnemy);
 };

@@ -9,7 +9,7 @@
 
 #include "Engine/EngineFramework.h"
 
-#define MAX_POINTS_IN_PATH 50
+#define MAX_POINTS_IN_PATH 100
 
 struct SimplePath
 {

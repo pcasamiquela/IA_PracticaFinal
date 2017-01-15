@@ -86,8 +86,8 @@ void WarriorPlayer::Clean()
 void WarriorPlayer::HandleInput()
 {
 	// Keyboard movement
-	Uint8 keyUp = Input::Instance().GetKey(KeyCode::UpArrow);
-	Uint8 keyDown = Input::Instance().GetKey(KeyCode::DownArrow);
+	Uint8 keyUp = Input::Instance().GetKey(KeyCode::W);
+	Uint8 keyDown = Input::Instance().GetKey(KeyCode::S);
 	Uint8 keyLeft = Input::Instance().GetKey(KeyCode::LeftArrow);
 	Uint8 keyRight = Input::Instance().GetKey(KeyCode::RightArrow);
 

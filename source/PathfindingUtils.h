@@ -357,7 +357,7 @@ namespace PathfindingUtils
 		return path;
 	}
 
-	static std::vector<Node*> PathfindDijkstra(Grid* grid, Node* start, Node* end, bool allowDiagonals = false)
+	static std::vector<Node*> PathfindDijkstra(Grid* grid, Node* start, Node* end, bool allowDiagonals)
 	{
 		// Declare result path
 		std::vector<Node*> path;

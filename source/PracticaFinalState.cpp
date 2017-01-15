@@ -1,5 +1,6 @@
 #include "PracticaFinalState.h"
-static int LevelArray[LEVEL_WIDTH][LEVEL_HEIGHT]  { 0 };
+static int LevelArray[LEVEL_WIDTH][LEVEL_HEIGHT]{ 0 };
+
 
 
 void PracticaFinalState::Init()
@@ -7,10 +8,12 @@ void PracticaFinalState::Init()
 	//Grid init
 	Grid_Init(&grid);
 
-
-
-
 	std::string assetPath;
+
+	//Texture
+	arrowTexture = {};
+	assetPath = PathUtils::GetResourcesPath("Images/Arrow.png");
+
 	numSoldiers = 0;
 	//Init level 01
 	ReadFromFile(LEVEL_01, LevelArray);
@@ -24,7 +27,7 @@ void PracticaFinalState::Init()
 	for (int i = 0; i < obstacleNumber; i++) {
 		obstacle[i] = LOS_Obstacle_Create(level_01->solids[i]->GetPosition(), CELL_WIDTH, CELL_HEIGHT);
 	}
-	
+
 	// Load player, enemies and gems
 	LoadEntities((int*)LevelArray, { 0.0f, 0.0f },
 		LEVEL_WIDTH, LEVEL_HEIGHT,
@@ -33,6 +36,7 @@ void PracticaFinalState::Init()
 	for (int i = 0; i < numSoldiers; i++) {
 		CreateSoldier(i);
 	}
+	CreateGrid((int*)LevelArray);
 
 }
 
@@ -57,6 +61,17 @@ void PracticaFinalState::Update(float deltaTime)
 	////	currentSoldiers->Update(deltaTime);*/
 		soldiersPool[i]->Update(deltaTime);
 	}
+
+	if (Input::Instance().GetKeyDown(KeyCode::Space)) {
+
+		StartPathfinding(*soldiersPool[1], player->GetPosition());
+		for (int i = 0; i < soldiersPool[1]->enemyPath.size(); i++) {
+			SimplePath_AddPoint(&tempPath, soldiersPool[1]->enemyPath[i]->position*32);
+		}
+
+		soldiersPool[1]->simplePath = &tempPath;
+
+	}
 	player->Update(deltaTime);
 }
 
@@ -64,6 +79,51 @@ void PracticaFinalState::Render()
 {
 	//cambiar por cases
 	level_01->Render();
+	for (int i = 0; i < grid.width; ++i) {
+		for (int j = 0; j < grid.height; j++) {
+			if (grid.array[i][j].cameFrom != nullptr)
+			{
+				int fromDirection = Node_GetDirection(&grid.array[i][j], grid.array[i][j].cameFrom);
+
+				float angleToRender = 0.0f;
+				switch (fromDirection) {
+				case 0:
+					angleToRender = 0.0f;
+					break;
+				case 1:
+					angleToRender = 90.0f;
+					break;
+				case 2:
+					angleToRender = 180.0f;
+					break;
+				case 3:
+					angleToRender = 270.0f;
+					break;
+				case 4:
+					angleToRender = 45.0f;
+					break;
+				case 5:
+					angleToRender = 135.0f;
+					break;
+				case 6:
+					angleToRender = 225.0f;
+					break;
+				case 7:
+					angleToRender = 315.0f;
+					break;
+
+				}
+
+				Texture_Render(&arrowTexture, Game::Instance().renderer,
+					0.0f + i * grid.cellSize + grid.cellSize / 4,
+					0.0f + j * grid.cellSize + grid.cellSize / 4,
+					nullptr, 1.0f, 1.0f, angleToRender);
+			}
+		}
+	}
+
+	PathfindingUtils::RenderPathfindingPath(&grid, Game::Instance().renderer, soldiersPool[1]->enemyPath, Colors::WHITE, Vector2D(0));
+
 	for (int i = 0; i < soldiersPool.size(); i++) {
 		soldiersPool[i]->Render();
 	}
@@ -117,6 +177,8 @@ void PracticaFinalState::ReadFromFile(LevelState _levelState, int _LevelArray[LE
 	}
 }
 void PracticaFinalState::StartPathfinding(ConeEnemyAgent &currentEnemy, Vector2D targetPos) {
+	
+	ResetPathfinding(currentEnemy);
 	int startX = currentEnemy.GetPosition().x / GRID_SIZE;
 	int startY = currentEnemy.GetPosition().y / GRID_SIZE;
 	int endX = targetPos.x / GRID_SIZE;
@@ -125,8 +187,25 @@ void PracticaFinalState::StartPathfinding(ConeEnemyAgent &currentEnemy, Vector2D
 	Node* startNode = &grid.array[startX][startY];
 	Node* endNode = &grid.array[endX][endY];
 
-	currentEnemy.enemyPath = PathfindingUtils::PathfindAStar(&grid, startNode, endNode, heuristicFunction, false, true, 1.0f, 1.0f);
+	currentEnemy.enemyPath = PathfindingUtils::PathfindAStar(&grid, startNode, endNode, heuristicFunction, false, false, 1.0f, 1.0f);
 }
+
+void PracticaFinalState::ResetPathfinding(ConeEnemyAgent& currentEnemy) {
+	// Reset nodes
+	for (int i = 0; i < grid.width; ++i)
+	{
+		for (int j = 0; j < grid.height; ++j)
+		{
+			Node_Reset(&grid.array[i][j]);
+		}
+	}
+	// Reset path
+	currentEnemy.enemyPath.clear();
+
+	//isPathReset = true;
+}
+
+
 
 void PracticaFinalState::CreatePlayer(int x, int y) {
 	//Init Player Collision
@@ -164,7 +243,7 @@ void PracticaFinalState::CreateSoldier(int soldierNumber) {
 		soldiersPool[soldierNumber]->targetPosition = &player->position;
 		soldiersPool[soldierNumber]->SetBehavior(SIMPLE_PATH_FOLLOWING);
 		soldiersPool[soldierNumber]->simplePath = &simplePathMap.find(soldierNumber)->second;
-		soldiersPool[soldierNumber]->SetSolidCollisions(level_01->solids);
+		//soldiersPool[soldierNumber]->SetSolidCollisions(level_01->solids);
 		soldiersPool[soldierNumber]->losObstacleArraySize = &obstacleNumber;
 		soldiersPool[soldierNumber]->losObstacleArray = obstacle;
 			//(LOS_Obstacle*)level_01->solids[i];
@@ -174,17 +253,21 @@ void PracticaFinalState::CreateSoldier(int soldierNumber) {
 void PracticaFinalState::ReadPathFromFile(int cont) {
 
 }
-void PracticaFinalState::CreateGrid() {
+void PracticaFinalState::CreateGrid(int *levelArray) {
 	Grid_Init(&grid);
 
-	for (int i = 0; i < LEVEL_WIDTH; i++) {
-		for (int j = 0; j < LEVEL_HEIGHT; j++) {
-			if (LevelArray[i][j] == 1 || LevelArray[i][j] == 3 || LevelArray[i][j] == 4) {
-				grid.array[i][j].isWall = true;
-				grid.array[i][j].weight = 9.0f;
+	for (int i = 0; i < LEVEL_HEIGHT; i++)
+	{
+		for (int j = 0; j < LEVEL_WIDTH; j++)
+		{
+			if (*(levelArray + (i*LEVEL_WIDTH) + j) == 1 || *(levelArray + (i*LEVEL_WIDTH) + j) == 3 || *(levelArray + (i*LEVEL_WIDTH) + j) == 4)
+				
+			{
+				grid.array[j][i].isWall = true;
 			}
-			else {
-				grid.array[i][j].isWall = false;
+			else 
+			{
+				grid.array[j][i].isWall = false;
 			}
 
 		}

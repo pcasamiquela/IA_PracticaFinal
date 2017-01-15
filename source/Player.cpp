@@ -39,10 +39,10 @@ void Player::Clean()
 void Player::HandleInput()
 {
 	// Keyboard movement
-	Uint8 keyUp = Input::Instance().GetKey(KeyCode::UpArrow);
-	Uint8 keyDown = Input::Instance().GetKey(KeyCode::DownArrow);
-	Uint8 keyLeft = Input::Instance().GetKey(KeyCode::LeftArrow);
-	Uint8 keyRight = Input::Instance().GetKey(KeyCode::RightArrow);
+	Uint8 keyUp = Input::Instance().GetKey(KeyCode::W);
+	Uint8 keyDown = Input::Instance().GetKey(KeyCode::S);
+	Uint8 keyLeft = Input::Instance().GetKey(KeyCode::A);
+	Uint8 keyRight = Input::Instance().GetKey(KeyCode::D);
 
 	// Update input flags
 	moveHorizontal = keyRight - keyLeft;
@@ -107,13 +107,13 @@ void Player::UpdateAngle()
 
 void Player::ManageAnimations()
 {
-	if (Input::Instance().GetKey(KeyCode::UpArrow) && Input::Instance().GetKey(KeyCode::RightArrow))	animationController->Play("RunUpDiagonalRight");
-	else if (Input::Instance().GetKey(KeyCode::UpArrow) && Input::Instance().GetKey(KeyCode::LeftArrow))	animationController->Play("RunUpDiagonalLeft");
-	else if (Input::Instance().GetKey(KeyCode::DownArrow)&& Input::Instance().GetKey(KeyCode::RightArrow))	animationController->Play("RunDownDiagonalRight");
-	else if (Input::Instance().GetKey(KeyCode::DownArrow) && Input::Instance().GetKey(KeyCode::LeftArrow))	animationController->Play("RunDownDiagonalLeft");
-	else if (Input::Instance().GetKey(KeyCode::UpArrow))	animationController->Play("RunUp");
-	else if (Input::Instance().GetKey(KeyCode::DownArrow))	animationController->Play("RunDown");
-	else if (Input::Instance().GetKey(KeyCode::LeftArrow))	animationController->Play("RunLeft");
-	else if (Input::Instance().GetKey(KeyCode::RightArrow))	animationController->Play("RunRight");
+	if (Input::Instance().GetKey(KeyCode::W) && Input::Instance().GetKey(KeyCode::D))	animationController->Play("RunUpDiagonalRight");
+	else if (Input::Instance().GetKey(KeyCode::W) && Input::Instance().GetKey(KeyCode::A))	animationController->Play("RunUpDiagonalLeft");
+	else if (Input::Instance().GetKey(KeyCode::S)&& Input::Instance().GetKey(KeyCode::D))	animationController->Play("RunDownDiagonalRight");
+	else if (Input::Instance().GetKey(KeyCode::S) && Input::Instance().GetKey(KeyCode::A))	animationController->Play("RunDownDiagonalLeft");
+	else if (Input::Instance().GetKey(KeyCode::W))	animationController->Play("RunUp");
+	else if (Input::Instance().GetKey(KeyCode::S))	animationController->Play("RunDown");
+	else if (Input::Instance().GetKey(KeyCode::A))	animationController->Play("RunLeft");
+	else if (Input::Instance().GetKey(KeyCode::D))	animationController->Play("RunRight");
 	else animationController->Play("Idle");
 }
