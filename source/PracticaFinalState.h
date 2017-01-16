@@ -44,7 +44,7 @@ private:
 	vector <int> numNodes;
 	//Simple Path
 	//vector <vector<SimplePath>> simplePathVector;
-	SimplePath tempPath;
+	SimplePath *tempPath;
 
 	map<int, SimplePath> simplePathMap;
 	SimplePath path1;
@@ -57,4 +57,5 @@ private:
 	void CreateGrid(int* levelArray);
 	void StartPathfinding(ConeEnemyAgent &currentEnemy, Vector2D targetPos);
 	void ResetPathfinding(ConeEnemyAgent& currentEnemy);
+	void CallPathFinding(int soldierNumber, Vector2D targetPosition);
 };

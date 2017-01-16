@@ -57,20 +57,19 @@ void PracticaFinalState::Update(float deltaTime)
 	//path = PathfindingUtils::PathfindAStar(&grid, startNode, endNode, heuristicFunction, useOptimization, allowDiagonals);
 
 	for (int i = 0; i < soldiersPool.size(); i++) {
-	////	/*ConeEnemyAgent *currentSoldiers = soldiersPool[i];
-	////	currentSoldiers->Update(deltaTime);*/
+		////	/*ConeEnemyAgent *currentSoldiers = soldiersPool[i];
+		////	currentSoldiers->Update(deltaTime);*/
+
+		if (soldiersPool[i]->simplePathStart) {
+			CallPathFinding(i, player->GetPosition());
+	}
+
 		soldiersPool[i]->Update(deltaTime);
+
 	}
 
 	if (Input::Instance().GetKeyDown(KeyCode::Space)) {
-
-		StartPathfinding(*soldiersPool[1], player->GetPosition());
-		for (int i = 0; i < soldiersPool[1]->enemyPath.size(); i++) {
-			SimplePath_AddPoint(&tempPath, soldiersPool[1]->enemyPath[i]->position*32);
-		}
-
-		soldiersPool[1]->simplePath = &tempPath;
-
+		soldiersPool[1]->simplePathStart = true;
 	}
 	player->Update(deltaTime);
 }
@@ -188,6 +187,7 @@ void PracticaFinalState::StartPathfinding(ConeEnemyAgent &currentEnemy, Vector2D
 	Node* endNode = &grid.array[endX][endY];
 
 	currentEnemy.enemyPath = PathfindingUtils::PathfindAStar(&grid, startNode, endNode, heuristicFunction, false, false, 1.0f, 1.0f);
+	currentEnemy.pathFollowingStarted = false;
 }
 
 void PracticaFinalState::ResetPathfinding(ConeEnemyAgent& currentEnemy) {
@@ -203,6 +203,31 @@ void PracticaFinalState::ResetPathfinding(ConeEnemyAgent& currentEnemy) {
 	currentEnemy.enemyPath.clear();
 
 	//isPathReset = true;
+}
+
+void PracticaFinalState::CallPathFinding(int soldierNumber, Vector2D targetPosition)
+{
+
+	soldiersPool[soldierNumber]->currentSegment = 0;
+	delete soldiersPool[soldierNumber]->tempPath;
+	soldiersPool[soldierNumber]->tempPath = new SimplePath();
+
+	StartPathfinding(*soldiersPool[soldierNumber], targetPosition);
+	for (int j = 0; j < soldiersPool[soldierNumber]->enemyPath.size(); j++) {
+		if (j > 0 && j < soldiersPool[soldierNumber]->enemyPath.size() - 1) {
+			if (soldiersPool[soldierNumber]->enemyPath[j - 1]->position.x != soldiersPool[soldierNumber]->enemyPath[j + 1]->position.x &&
+				soldiersPool[soldierNumber]->enemyPath[j - 1]->position.y != soldiersPool[soldierNumber]->enemyPath[j + 1]->position.y) {
+
+				SimplePath_AddPoint(soldiersPool[soldierNumber]->tempPath, Vector2D(soldiersPool[soldierNumber]->enemyPath[j]->position.x * 32 + 16.0f, soldiersPool[soldierNumber]->enemyPath[j]->position.y * 32 + 12.0f));
+			}
+		}
+		else {
+			SimplePath_AddPoint(soldiersPool[soldierNumber]->tempPath, Vector2D(soldiersPool[soldierNumber]->enemyPath[j]->position.x * 32 + 16.0f, soldiersPool[soldierNumber]->enemyPath[j]->position.y * 32 + 12.0f));
+		}
+	}
+
+	soldiersPool[soldierNumber]->simplePath = soldiersPool[soldierNumber]->tempPath;
+	soldiersPool[soldierNumber]->simplePathStart = false;
 }
 
 
@@ -246,6 +271,7 @@ void PracticaFinalState::CreateSoldier(int soldierNumber) {
 		//soldiersPool[soldierNumber]->SetSolidCollisions(level_01->solids);
 		soldiersPool[soldierNumber]->losObstacleArraySize = &obstacleNumber;
 		soldiersPool[soldierNumber]->losObstacleArray = obstacle;
+		soldiersPool[soldierNumber]->currentSegment = 0;
 			//(LOS_Obstacle*)level_01->solids[i];
 	}
 }

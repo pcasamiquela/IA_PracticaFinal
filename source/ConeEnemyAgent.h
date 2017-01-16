@@ -22,7 +22,7 @@ public:
 	virtual void Render() override;
 	virtual bool TargetDetected();
 	void Setup() override;
-
+	SimplePath *tempPath;
 private:
 	// Perception fields
 	// Vision

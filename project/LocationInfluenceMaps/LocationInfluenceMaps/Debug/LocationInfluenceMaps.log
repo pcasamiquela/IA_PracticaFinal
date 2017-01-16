@@ -1,10 +1,2 @@
-﻿  PracticaFinalState.cpp
-d:\pol_b\documents\enti\sourcetree\ia\practicafinal\source\simplepath.h(12): warning C4005: 'MAX_POINTS_IN_PATH': macro redefinition
-  d:\pol_b\documents\enti\sourcetree\ia\practicafinal\source\path.h(12): note: see previous definition of 'MAX_POINTS_IN_PATH'
-d:\pol_b\documents\enti\sourcetree\ia\practicafinal\source\obstacle.h(12): warning C4005: 'MAX_POINTS_IN_PATH': macro redefinition
-  d:\pol_b\documents\enti\sourcetree\ia\practicafinal\source\simplepath.h(12): note: see previous definition of 'MAX_POINTS_IN_PATH'
-d:\pol_b\documents\enti\sourcetree\ia\practicafinal\source\practicafinalstate.cpp(59): warning C4018: '<': signed/unsigned mismatch
-d:\pol_b\documents\enti\sourcetree\ia\practicafinal\source\practicafinalstate.cpp(68): warning C4018: '<': signed/unsigned mismatch
-d:\pol_b\documents\enti\sourcetree\ia\practicafinal\source\practicafinalstate.cpp(127): warning C4018: '<': signed/unsigned mismatch
-  LocationInfluenceMaps.vcxproj -> D:\pol_b\Documents\Enti\SourceTree\IA\PracticaFinal\project\LocationInfluenceMaps\..\..\bin\PracticaFinal.exe
-  LocationInfluenceMaps.vcxproj -> D:\pol_b\Documents\Enti\SourceTree\IA\PracticaFinal\project\LocationInfluenceMaps\..\..\bin\PracticaFinal.pdb (Partial PDB)
+﻿  LocationInfluenceMaps.vcxproj -> C:\Users\efarriol\Desktop\IA_PracticaFinal\project\LocationInfluenceMaps\..\..\bin\PracticaFinal.exe
+  LocationInfluenceMaps.vcxproj -> C:\Users\efarriol\Desktop\IA_PracticaFinal\project\LocationInfluenceMaps\..\..\bin\PracticaFinal.pdb (Partial PDB)

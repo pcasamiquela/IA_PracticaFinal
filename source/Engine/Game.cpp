@@ -72,11 +72,11 @@ bool Game::Init(const char* title, int width, int height, SDL_Color backgroundCo
 		}
 
 		// Initialize SDL_mixer.
-		if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024) == -1)
+		/*if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024) == -1)
 		{
 			SDL_LogError(SDL_LOG_CATEGORY_SYSTEM, "SDL_mixer could not be initialized. Mix_Error: %s\n", Mix_GetError());
 			return false;
-		}
+		}*/
 	}
 
 	// Window Creation
