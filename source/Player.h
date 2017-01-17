@@ -8,6 +8,9 @@
 #pragma once
 
 #include "Engine/EngineFramework.h"
+#include "Locker.h"
+#include <vector>
+using namespace std;
 
 class Player : public DibSprite
 {
@@ -22,7 +25,7 @@ public:
 	virtual void Update(float deltaTime) override;
 	virtual void Render() override;
 	virtual void Clean() override;
-
+	void EnterToLocker(Locker &currentLocker);
 
 private:
 	// Input flags

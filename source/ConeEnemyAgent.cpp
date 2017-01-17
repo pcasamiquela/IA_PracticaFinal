@@ -36,7 +36,7 @@ bool ConeEnemyAgent::TargetDetected()
 	Vector2D currentConeBase = Vector2DUtils::RotatePoint(position, coneBasePoint, angle);
 	if (Vector2DUtils::IsInsideCone(*targetPosition, position, currentConeBase, visionConeHalfAngle))
 	{
-		if (HasLOSWithTarget())
+		if (HasLOSWithTarget() && playerIsActive)
 		{
 			return true;
 		}

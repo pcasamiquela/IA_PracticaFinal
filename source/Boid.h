@@ -74,6 +74,7 @@ public:
 	Behavior currentBehavior = SEEK_KINEMATIC;
 	bool isSteering = false;
 	bool smoothAngleChange = false;
+	bool playerIsActive;
 
 	// Steering fields
 	Vector2D* targetPosition = {};

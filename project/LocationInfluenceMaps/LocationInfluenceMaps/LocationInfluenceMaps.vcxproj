@@ -231,6 +231,7 @@
     <ClCompile Include="..\..\..\source\InfluenceBoid.cpp" />
     <ClCompile Include="..\..\..\source\InfluenceMapUtils.cpp" />
     <ClCompile Include="..\..\..\source\InfluencePlayer.cpp" />
+    <ClCompile Include="..\..\..\source\Locker.cpp" />
     <ClCompile Include="..\..\..\source\LOS_Obstacle.cpp" />
     <ClCompile Include="..\..\..\source\Main.cpp" />
     <ClCompile Include="..\..\..\source\MenuState.cpp" />
@@ -355,6 +356,7 @@
     <ClInclude Include="..\..\..\source\InfluenceMapUtils.h" />
     <ClInclude Include="..\..\..\source\InfluencePlayer.h" />
     <ClInclude Include="..\..\..\source\InfluenceTypes.h" />
+    <ClInclude Include="..\..\..\source\Locker.h" />
     <ClInclude Include="..\..\..\source\LOS_Obstacle.h" />
     <ClInclude Include="..\..\..\source\MenuState.h" />
     <ClInclude Include="..\..\..\source\Miner.h" />

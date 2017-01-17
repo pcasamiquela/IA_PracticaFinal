@@ -42,6 +42,7 @@ void PracticaFinalState::Init()
 
 void PracticaFinalState::Clean()
 {
+	for(int i = 0; i < lockersPool.size(); i++)	lockersPool[i]->Clean();
 }
 
 void PracticaFinalState::Update(float deltaTime)
@@ -51,10 +52,28 @@ void PracticaFinalState::Update(float deltaTime)
 		Game::Instance().ChangeState(MENU_STATE);
 		return;
 	}
-
+	if (Input::Instance().GetKeyDown(KeyCode::E) )
+	{
+		if (!isInLocker) {
+			for (int i = 0; i < lockersPool.size(); i++) {
+				if ((int)player->GetPosition().y / 32 - 1 == (int)lockersPool[i]->GetPosition().y / 32 &&
+					(int)player->GetPosition().x / 32 == (int)lockersPool[i]->GetPosition().x / 32) {
+					player->EnterToLocker(*lockersPool[i]);
+					isInLocker = true;
+				}
+			}
+		}
+		else {
+			player->SetActive(true);
+			isInLocker = false;
+		}
+	}
 	heuristicFunction = HeuristicUtils::ManhattanDistance;
 	//steppedExecutionFinished = SteppedPathfindingUtils::SteppedPathfindAStar(&grid, path, heuristicFunction, useOptimization, allowDiagonals);
 	//path = PathfindingUtils::PathfindAStar(&grid, startNode, endNode, heuristicFunction, useOptimization, allowDiagonals);
+
+	for (int i = 0; i < lockersPool.size(); i++) lockersPool[i]->Update(deltaTime);
+
 
 	for (int i = 0; i < soldiersPool.size(); i++) {
 		////	/*ConeEnemyAgent *currentSoldiers = soldiersPool[i];
@@ -62,10 +81,9 @@ void PracticaFinalState::Update(float deltaTime)
 
 		if (soldiersPool[i]->simplePathStart) {
 			CallPathFinding(i, player->GetPosition());
-	}
-
+		}
+		soldiersPool[i]->playerIsActive = player->GetActive();
 		soldiersPool[i]->Update(deltaTime);
-
 	}
 
 	if (Input::Instance().GetKeyDown(KeyCode::Space)) {
@@ -78,50 +96,12 @@ void PracticaFinalState::Render()
 {
 	//cambiar por cases
 	level_01->Render();
-	for (int i = 0; i < grid.width; ++i) {
-		for (int j = 0; j < grid.height; j++) {
-			if (grid.array[i][j].cameFrom != nullptr)
-			{
-				int fromDirection = Node_GetDirection(&grid.array[i][j], grid.array[i][j].cameFrom);
 
-				float angleToRender = 0.0f;
-				switch (fromDirection) {
-				case 0:
-					angleToRender = 0.0f;
-					break;
-				case 1:
-					angleToRender = 90.0f;
-					break;
-				case 2:
-					angleToRender = 180.0f;
-					break;
-				case 3:
-					angleToRender = 270.0f;
-					break;
-				case 4:
-					angleToRender = 45.0f;
-					break;
-				case 5:
-					angleToRender = 135.0f;
-					break;
-				case 6:
-					angleToRender = 225.0f;
-					break;
-				case 7:
-					angleToRender = 315.0f;
-					break;
 
-				}
-
-				Texture_Render(&arrowTexture, Game::Instance().renderer,
-					0.0f + i * grid.cellSize + grid.cellSize / 4,
-					0.0f + j * grid.cellSize + grid.cellSize / 4,
-					nullptr, 1.0f, 1.0f, angleToRender);
-			}
-		}
+	//PathfindingUtils::RenderPathfindingPath(&grid, Game::Instance().renderer, soldiersPool[1]->enemyPath, Colors::WHITE, Vector2D(0));
+	for (int i = 0; i < lockersPool.size(); i++) {
+		lockersPool[i]->Render();
 	}
-
-	PathfindingUtils::RenderPathfindingPath(&grid, Game::Instance().renderer, soldiersPool[1]->enemyPath, Colors::WHITE, Vector2D(0));
 
 	for (int i = 0; i < soldiersPool.size(); i++) {
 		soldiersPool[i]->Render();
@@ -201,14 +181,12 @@ void PracticaFinalState::ResetPathfinding(ConeEnemyAgent& currentEnemy) {
 	}
 	// Reset path
 	currentEnemy.enemyPath.clear();
-
-	//isPathReset = true;
 }
 
 void PracticaFinalState::CallPathFinding(int soldierNumber, Vector2D targetPosition)
 {
 
-	soldiersPool[soldierNumber]->currentSegment = 0;
+	soldiersPool[soldierNumber]->currentSegment = 1;
 	delete soldiersPool[soldierNumber]->tempPath;
 	soldiersPool[soldierNumber]->tempPath = new SimplePath();
 
@@ -217,12 +195,13 @@ void PracticaFinalState::CallPathFinding(int soldierNumber, Vector2D targetPosit
 		if (j > 0 && j < soldiersPool[soldierNumber]->enemyPath.size() - 1) {
 			if (soldiersPool[soldierNumber]->enemyPath[j - 1]->position.x != soldiersPool[soldierNumber]->enemyPath[j + 1]->position.x &&
 				soldiersPool[soldierNumber]->enemyPath[j - 1]->position.y != soldiersPool[soldierNumber]->enemyPath[j + 1]->position.y) {
-
+					
 				SimplePath_AddPoint(soldiersPool[soldierNumber]->tempPath, Vector2D(soldiersPool[soldierNumber]->enemyPath[j]->position.x * 32 + 16.0f, soldiersPool[soldierNumber]->enemyPath[j]->position.y * 32 + 12.0f));
 			}
 		}
 		else {
 			SimplePath_AddPoint(soldiersPool[soldierNumber]->tempPath, Vector2D(soldiersPool[soldierNumber]->enemyPath[j]->position.x * 32 + 16.0f, soldiersPool[soldierNumber]->enemyPath[j]->position.y * 32 + 12.0f));
+
 		}
 	}
 
@@ -266,14 +245,20 @@ void PracticaFinalState::CreateSoldier(int soldierNumber) {
 		soldiersPool[soldierNumber]->SetPosition(simplePathMap.find(soldierNumber)->second.pathArray[0].x, simplePathMap.find(soldierNumber)->second.pathArray[0].y);
 		soldiersPool[soldierNumber]->SetActive(true);
 		soldiersPool[soldierNumber]->targetPosition = &player->position;
+		soldiersPool[soldierNumber]->playerIsActive = player->GetActive();
 		soldiersPool[soldierNumber]->SetBehavior(SIMPLE_PATH_FOLLOWING);
 		soldiersPool[soldierNumber]->simplePath = &simplePathMap.find(soldierNumber)->second;
 		//soldiersPool[soldierNumber]->SetSolidCollisions(level_01->solids);
 		soldiersPool[soldierNumber]->losObstacleArraySize = &obstacleNumber;
 		soldiersPool[soldierNumber]->losObstacleArray = obstacle;
 		soldiersPool[soldierNumber]->currentSegment = 0;
-			//(LOS_Obstacle*)level_01->solids[i];
+		//(LOS_Obstacle*)level_01->solids[i];
 	}
+}
+void PracticaFinalState::CreateLocker(int lockerID, int x, int y){
+	std::string assetPath = PathUtils::GetResourcesPath("images/LockerClosed.png");
+	lockersPool.push_back(new Locker(x, y, 32, 73));
+	lockersPool[lockerID]->LoadGraphic(assetPath,"Locker", 32, 64);
 }
 
 void PracticaFinalState::ReadPathFromFile(int cont) {
@@ -303,7 +288,7 @@ void PracticaFinalState::CreateGrid(int *levelArray) {
 void PracticaFinalState::LoadEntities(int* levelArray, Vector2D levelOrigin,
 	int levelWidth, int levelHeight,
 	int tileImageWidth, int tileImageHeight, Vector2D tileImageScale) {
-	int currentSoldier = 0;
+	int currentLocker = 0;
 	// Loop to create player, enemies and gems objects
 	for (int i = 0; i < levelHeight; ++i)
 	{
@@ -315,6 +300,14 @@ void PracticaFinalState::LoadEntities(int* levelArray, Vector2D levelOrigin,
 					+ tileImageWidth * 0.5f * tileImageScale.x,
 					levelOrigin.y + tileImageHeight * i * tileImageScale.y
 					+ tileImageHeight * 0.5f * tileImageScale.y);
+			}
+			if (*(levelArray + (i*levelWidth) + j) == 3)
+			{
+				CreateLocker(currentLocker, levelOrigin.x + tileImageWidth * j * tileImageScale.x
+					+ tileImageWidth * 0.5f * tileImageScale.x,
+					levelOrigin.y + tileImageHeight * i * tileImageScale.y
+					+ tileImageHeight * 0.5f * tileImageScale.y);
+				currentLocker++;
 			}
 			/*else if (*(levelArray + (i*levelWidth) + j) == 6)
 			{

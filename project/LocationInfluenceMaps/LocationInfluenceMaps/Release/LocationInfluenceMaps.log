@@ -1,0 +1,97 @@
+﻿  SDL_FontCache.c
+  SDL2_gfxPrimitives.c
+  SDL2_rotozoom.c
+  astar.c
+  goap.c
+  AnimatedBoid.cpp
+  Area.cpp
+  BasicAgent.cpp
+  BehaviorTree.cpp
+  BTAgent.cpp
+  CleanerRobotClean.cpp
+  CleanerRobotEnergy.cpp
+  DecisionTree.cpp
+  DecisionTreeBoid.cpp
+  DecisionTreeInteractive.cpp
+  DecisionTreeRealTime.cpp
+  BlackboardAgent.cpp
+  Boid.cpp
+  ConeEnemyAgent.cpp
+  DynamicBlackboard.cpp
+  EnemyAgent.cpp
+  BitmapFont.cpp
+  DibAnimation.cpp
+  DibAnimationController.cpp
+  DibObject.cpp
+  Compiling...
+  DibSprite.cpp
+  Game.cpp
+  Input.cpp
+  Level.cpp
+  RotatedText.cpp
+  SoundManager.cpp
+  StateManager.cpp
+  StaticTexture.cpp
+  Texture.cpp
+  TextureManager.cpp
+  Timer.cpp
+  Trail.cpp
+  ErrorManagement.cpp
+  FlowField.cpp
+  FlowObstacle.cpp
+  GameController.cpp
+  GraphUtils.cpp
+  GridUtils.cpp
+  HC_DecisionTreeBoid.cpp
+  HTNUtils.cpp
+  Compiling...
+  InfluenceAgent.cpp
+  InfluenceBoid.cpp
+  InfluenceMapUtils.cpp
+  InfluencePlayer.cpp
+  Locker.cpp
+  LOS_Obstacle.cpp
+  Main.cpp
+  MenuState.cpp
+  Miner.cpp
+  MinerMacrosStateMachine.cpp
+  MinerOwnedStates.cpp
+  MinerPointer.cpp
+  MinerSimplePointer.cpp
+  Modality.cpp
+  NavMeshUtils.cpp
+  Obstacle.cpp
+  Path.cpp
+  PointerFSM.cpp
+  PracticaFinalState.cpp
+..\..\..\source\PracticaFinalState.cpp(57): warning C4018: '<': signed/unsigned mismatch
+..\..\..\source\PracticaFinalState.cpp(66): warning C4018: '<': signed/unsigned mismatch
+..\..\..\source\PracticaFinalState.cpp(91): warning C4018: '<': signed/unsigned mismatch
+..\..\..\source\PracticaFinalState.cpp(95): warning C4018: '<': signed/unsigned mismatch
+..\..\..\source\PracticaFinalState.cpp(183): warning C4018: '<': signed/unsigned mismatch
+..\..\..\source\PracticaFinalState.cpp(184): warning C4018: '<': signed/unsigned mismatch
+  RegionalSenseManager.cpp
+  Compiling...
+  Rotator.cpp
+  Player.cpp
+  Sensor.cpp
+  SensorNotification.cpp
+  SightModality.cpp
+  Signal.cpp
+  SignalProp.cpp
+  SimplePath.cpp
+  StateMachine.cpp
+  StaticBlackboard.cpp
+  SteeringGroup.cpp
+  StrategyUtils.cpp
+  WarriorPlayer.cpp
+  BTSoloAgent.cpp
+  BTCollabAgent.cpp
+  BTSimpleSoloAgent.cpp
+  EllipseEnemyAgent.cpp
+  UncertaintyAgent.cpp
+  Generating code
+  All 1828 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  LocationInfluenceMaps.vcxproj -> D:\pol_b\Documents\Enti\SourceTree\IA\PracticaFinal\project\LocationInfluenceMaps\..\..\bin\PracticaFinal.exe
+  LocationInfluenceMaps.vcxproj -> D:\pol_b\Documents\Enti\SourceTree\IA\PracticaFinal\project\LocationInfluenceMaps\..\..\bin\PracticaFinal.pdb (Full PDB)

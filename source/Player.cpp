@@ -53,7 +53,7 @@ void Player::UpdateSpeed(float deltaTime)
 {
 	static const float ACCELERATION = 60.0f * 60.0f;
 	static const float FRICTION = 25.5f * 60.0f;
-	static const float MAX_SPEED = 4.0f * 60.0f;
+	static const float MAX_SPEED = 3.0f * 60.0f;
 
 	float deltaFriction = FRICTION * deltaTime;
 	float deltaAcceleration = ACCELERATION * deltaTime;
@@ -104,6 +104,13 @@ void Player::UpdateAngle()
 		angle = FloatUtils::CalculateOrientation(speed);
 	}
 }
+void Player::EnterToLocker(Locker &currentLocker) {
+
+	currentLocker.playerInside = true;
+	currentLocker.ChangeSprite();
+	SetActive(false);
+}
+
 
 void Player::ManageAnimations()
 {

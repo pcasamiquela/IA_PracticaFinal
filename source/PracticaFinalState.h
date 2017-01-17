@@ -1,6 +1,7 @@
 #include "Engine/EngineFramework.h"
 #include "Player.h"
 #include "Boid.h"
+#include "Locker.h"
 #include "ConeEnemyAgent.h"
 #include "ErrorManagement.h"
 #include <fstream>
@@ -27,6 +28,8 @@ private:
 	HeuristicFunction heuristicFunction = &HeuristicUtils::ManhattanDistance;
 
 	bool steppedExecutionFinished = true;
+	bool isInLocker = false;
+
 	Grid grid;
 	//Textures
 	Texture arrowTexture;
@@ -39,6 +42,7 @@ private:
 	Player *playerToShow;
 	//GenericPool<Boid>* soldiersPool
 	vector<ConeEnemyAgent*> soldiersPool;
+	vector<Locker*> lockersPool;
 	Level *level_01;
 	int numSoldiers;
 	vector <int> numNodes;
@@ -52,10 +56,12 @@ private:
 	void ReadFromFile(LevelState _levelState, int _LevelArray[LEVEL_WIDTH][LEVEL_HEIGHT]);
 	void CreatePlayer(int x, int y);
 	void CreateSoldier(int soldierNumber);
+	void CreateLocker(int lockerID, int x, int y);
 	void LoadEntities(int* levelArray, Vector2D levelOrigin,int levelWidth, int levelHeight,int tileImageWidth, int tileImageHeight, Vector2D tileImageScale);
 	void ReadPathFromFile(int cont);
 	void CreateGrid(int* levelArray);
 	void StartPathfinding(ConeEnemyAgent &currentEnemy, Vector2D targetPos);
 	void ResetPathfinding(ConeEnemyAgent& currentEnemy);
 	void CallPathFinding(int soldierNumber, Vector2D targetPosition);
+
 };

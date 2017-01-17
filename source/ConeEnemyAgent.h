@@ -9,6 +9,7 @@
 
 #include "Engine/EngineFramework.h"
 #include "EnemyAgent.h"
+#include "BTAgent.h"
 
 class ConeEnemyAgent : public EnemyAgent
 {
