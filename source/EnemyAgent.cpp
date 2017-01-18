@@ -15,7 +15,6 @@ void EnemyAgent::Update(float deltaTime)
 	case PATROL_STATE:
 	{
 		++patrolCounter;
-
 		if (patrolCounter > K_PATROL_FREQUENCY_COUNTER)
 		{
 			patrolCounter = 0;
@@ -30,7 +29,7 @@ void EnemyAgent::Update(float deltaTime)
 	case PURSUE_STATE:
 	{
 		++losCounter;
-
+		SetCollidesFlag(true);
 		if (losCounter > K_LOS_FREQUENCY_COUNTER)
 		{
 			losCounter = 0;
@@ -45,33 +44,67 @@ void EnemyAgent::Update(float deltaTime)
 	case AMUSED_STATE:
 	{
 		++amusedCounter;
-
+		if (TargetDetected())
+		{
+			amusedCounter = 0;
+			ChangeState(PURSUE_STATE);
+		}
 		if (amusedCounter > K_AMUSED_COUNTER)
 		{
 			amusedCounter = 0;
+			currentSegment = 0;
+			ChangeState(SEARCH_LASTPOS_STATE);
+		}
+	}break;
 
+	case  SEARCH_LASTPOS_STATE:
+	{
+		if (TargetDetected())
+		{
+			ChangeState(PURSUE_STATE);
+		}
+		if (position.x / 32 <= targetpathPosition.x / 32 + 1 && position.x / 32 >= targetpathPosition.x / 32 - 1 &&
+			position.y / 32 <= targetpathPosition.y / 32 + 1 && position.y / 32 >= targetpathPosition.y / 32 - 1) {
+			int cellX = targetpathPosition.x / 32;
+			int cellY = targetpathPosition.y / 32;
+			position.x = cellX * 32 + 16;
+			position.y = cellY * 32 + 16;
+			ChangeState(WANDER_SEARCH_STATE);
+		}
+
+	}break;
+
+	case WANDER_SEARCH_STATE:
+	{
+		if (TargetDetected())
+		{
+			wanderCounter = 0;
+			ChangeState(PURSUE_STATE);
+
+		}
+		wanderCounter++;
+		if (wanderCounter > K_WANDER_COUNTER) {
+			wanderCounter = 0;
+			ChangeState(PATROL_PATH_FINDING_STATE);
+		}
+
+
+	}break;
+
+	case PATROL_PATH_FINDING_STATE:
+	{
+		if (TargetDetected())
+		{
+			ChangeState(PURSUE_STATE);
+		}
+		if (position.x/32 <= targetpathPosition.x/32 + 1 && position.x/32 >= targetpathPosition.x/32 - 1 &&
+			position.y/32 <= targetpathPosition.y/32 + 1 && position.y/32 >= targetpathPosition.y/32 - 1) {
+			simplePath = patrolPath;
+			currentSegment = 0;
 			ChangeState(PATROL_STATE);
 		}
 	}break;
-	case PATROL_PATH_FINDING_STATE:
-	{
-
-
-
-
-
-	}break;
-	case  SEARCH_LASTPOS_STATE:
-	{
-		
-
-
-
-
-
-
-
-	}break;
+	
 	default:
 	{
 		// Do nothing
@@ -79,7 +112,7 @@ void EnemyAgent::Update(float deltaTime)
 	}
 
 	// Update base class
-	Boid::Update(deltaTime);
+	AnimatedBoid::Update(deltaTime);
 }
 
 void EnemyAgent::ChangeState(EnemyState state)
@@ -121,6 +154,7 @@ void EnemyAgent::ChangeState(EnemyState state)
 		pathFollowingStarted = false;
 		SetBehavior(Behavior::SIMPLE_PATH_FOLLOWING);
 		simplePathStart = false;
+		SetCollidesFlag(false);
 	} break;
 	case AMUSED_STATE:
 	{
@@ -135,19 +169,32 @@ void EnemyAgent::ChangeState(EnemyState state)
 		SetBehavior(Behavior::ARRIVE);
 		targetDetected = true;
 		simplePathStart = false;
+		SetCollidesFlag(true);
 	} break;
 	case SEARCH_LASTPOS_STATE:
 	{
 		SDL_Log("State_Search_LastPos_Enter");
 		SetBehavior(Behavior::SIMPLE_PATH_FOLLOWING);
+		targetpathPosition = *targetPosition;
 		targetDetected = false;
-		simplePathStart = false;
+		simplePathStart = true;
+		SetCollidesFlag(false);
 	}break;
 	case PATROL_PATH_FINDING_STATE:
 	{
-		simplePathStart = true;
 		SetBehavior(Behavior::SIMPLE_PATH_FOLLOWING);
-	}
+		targetpathPosition = patrolPath->pathArray[0];
+		targetDetected = false;
+		simplePathStart = true;
+		SetCollidesFlag(false);
+	}break;
+	case WANDER_SEARCH_STATE:
+	{
+		SetBehavior(Behavior::SIMPLE_WANDER);
+		targetDetected = false;
+		simplePathStart = false;
+		SetCollidesFlag(true);
+	}break;
 	default:
 	{
 		// Do nothing
@@ -158,7 +205,7 @@ void EnemyAgent::ChangeState(EnemyState state)
 void EnemyAgent::Render()
 {
 	// Render base class
-	Boid::Render();
+	AnimatedBoid::Render();
 }
 
 bool EnemyAgent::HasLOSWithTarget()

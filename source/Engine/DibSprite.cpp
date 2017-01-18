@@ -46,7 +46,7 @@ void DibSprite::Render()
 		TextureManager::Instance().DrawFrame(Game::Instance().renderer,
 			textureID,
 			position.x, position.y,
-			spriteWidth, spriteHeight, scale.x, scale.y, angle, origin,
+			spriteWidth, spriteHeight, scale.x, scale.y, 0, origin,
 			animationController->currentAnimation->row, animationController->currentAnimation->currentIndex,
 			currentFlip);
 	}

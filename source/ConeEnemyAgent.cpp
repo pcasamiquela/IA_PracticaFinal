@@ -48,12 +48,12 @@ void ConeEnemyAgent::Setup()
 {
 	SDL_Log("Boid - Setup");
 	SetPosition(0.0f, 0.0f);
-	SetWidth(32);
-	SetHeight(24);
-	std::string assetPath = PathUtils::GetResourcesPath("images/Boid.png");
-	LoadGraphic(assetPath, "Boid", 32, 24, false);
-	SetScale(GLOBAL_SCALE, GLOBAL_SCALE);
-	SetOrigin(0.5f, 0.5f);
+	//SetWidth(32);
+	//SetHeight(24);
+	/*std::string assetPath = PathUtils::GetResourcesPath("images/SnakeSpritesheet.png");
+	LoadGraphic(assetPath, "Boid", 15, 26, false);*/
+	//SetScale(GLOBAL_SCALE, GLOBAL_SCALE);
+	//SetOrigin(0.5f, 0.5f);
 	SetActive(false);
 }
 

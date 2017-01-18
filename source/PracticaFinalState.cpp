@@ -80,7 +80,7 @@ void PracticaFinalState::Update(float deltaTime)
 		////	currentSoldiers->Update(deltaTime);*/
 
 		if (soldiersPool[i]->simplePathStart) {
-			CallPathFinding(i, player->GetPosition());
+			CallPathFinding(i, soldiersPool[i]->targetpathPosition);
 		}
 		soldiersPool[i]->playerIsActive = player->GetActive();
 		soldiersPool[i]->Update(deltaTime);
@@ -248,7 +248,11 @@ void PracticaFinalState::CreateSoldier(int soldierNumber) {
 		soldiersPool[soldierNumber]->playerIsActive = player->GetActive();
 		soldiersPool[soldierNumber]->SetBehavior(SIMPLE_PATH_FOLLOWING);
 		soldiersPool[soldierNumber]->simplePath = &simplePathMap.find(soldierNumber)->second;
-		//soldiersPool[soldierNumber]->SetSolidCollisions(level_01->solids);
+		soldiersPool[soldierNumber]->patrolPath = &simplePathMap.find(soldierNumber)->second; //Static patrol to return to its original patrol route
+		soldiersPool[soldierNumber]->SetSolidCollisions(level_01->solids);
+		soldiersPool[soldierNumber]->targets = level_01->solids;
+		soldiersPool[soldierNumber]->SetCollidesFlag(false);
+		soldiersPool[soldierNumber]->ShowCollisionBox(true);
 		soldiersPool[soldierNumber]->losObstacleArraySize = &obstacleNumber;
 		soldiersPool[soldierNumber]->losObstacleArray = obstacle;
 		soldiersPool[soldierNumber]->currentSegment = 0;

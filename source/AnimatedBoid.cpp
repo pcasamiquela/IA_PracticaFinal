@@ -14,24 +14,24 @@ AnimatedBoid::AnimatedBoid(int x, int y, int width, int height) :
 	moves = true;
 	isActive = true;
 	// Set Size
-	SetScale(2.0f, 2.0f);
-	SetWidth(64);
-	SetHeight(64);
+	SetScale(GLOBAL_SCALE*3.0f, GLOBAL_SCALE*3.0f);
+	SetWidth(32/3);
+	SetHeight(32/3);
 	// Set Graphic
-	std::string assetPath = PathUtils::GetResourcesPath("images/DragonSpritesheet.png");
-	LoadGraphic(assetPath, "DragonSpritesheet", 64, 64, true);
+	std::string assetPath = PathUtils::GetResourcesPath("images/EnemySpritesheet.png");
+	LoadGraphic(assetPath, "Enemy", 15, 26, true);
 	// Animations
-	int frameSpeed = 12;
-	animationController->Add("MoveUp", 0, { 0, 1, 2 }, frameSpeed, true);
-	animationController->Add("IdleUp", 0, { 1 }, frameSpeed, true);
-	animationController->Add("MoveUpRight", 1, { 0, 1, 2 }, frameSpeed, true);
-	animationController->Add("IdleUpRight", 1, { 1 }, frameSpeed, true);
-	animationController->Add("MoveRight", 2, { 0, 1, 2 }, frameSpeed, true);
-	animationController->Add("IdleRight", 2, { 1 }, frameSpeed, true);
-	animationController->Add("MoveDownRight", 3, { 0, 1, 2 }, frameSpeed, true);
-	animationController->Add("IdleDownRight", 3, { 1 }, frameSpeed, true);
-	animationController->Add("MoveDown", 4, { 0, 1, 2 }, frameSpeed, true);
-	animationController->Add("IdleDown", 4, { 1 }, frameSpeed, true);
+	int frameSpeed = 10;
+	animationController->Add("MoveUp", 0, { 1,2,3,4 }, frameSpeed, true);
+	animationController->Add("IdleUp", 2, { 0 }, frameSpeed, true);
+	animationController->Add("MoveUpRight", 3, { 0,1,2,3 }, frameSpeed, true);
+	animationController->Add("IdleUpRight", 2, { 0 }, frameSpeed, true);
+	animationController->Add("MoveRight", 2, { 1,2,3,4 }, frameSpeed, true);
+	animationController->Add("IdleRight", 2, { 0 }, frameSpeed, true);
+	animationController->Add("MoveDownRight", 3, { 0,1,2,3 }, frameSpeed, true);
+	animationController->Add("IdleDownRight", 2, { 0 }, frameSpeed, true);
+	animationController->Add("MoveDown", 4, { 1,2,3,4 }, frameSpeed, true);
+	animationController->Add("IdleDown", 2, { 0 }, frameSpeed, true);
 	animationController->Play("IdleRight", true);
 	// Debugging
 	//ShowCollisionBox(true);
@@ -41,13 +41,13 @@ AnimatedBoid::AnimatedBoid(int x, int y, int width, int height) :
 void AnimatedBoid::Update(float deltaTime)
 {
 	// Store current angle
-	overridenAngle = angle;
+	//overridenAngle = angle;
 
 	// Call DecisionTreeBoid Update
 	Boid::Update(deltaTime);
 
 	// Avoid angle override from base class
-	angle = overridenAngle;
+	//angle = overridenAngle;
 
 	// Update Graphic
 	UpdateSprite();

@@ -9,7 +9,7 @@
 
 #include "Engine/EngineFramework.h"
 
-#include "Boid.h"
+#include "AnimatedBoid.h"
 #include "LOS_Obstacle.h"
 
 enum EnemyState
@@ -18,16 +18,17 @@ enum EnemyState
 	PURSUE_STATE,
 	AMUSED_STATE,
 	PATROL_PATH_FINDING_STATE,
-	SEARCH_LASTPOS_STATE
+	SEARCH_LASTPOS_STATE,
+	WANDER_SEARCH_STATE
 };
 
-class EnemyAgent : public Boid
+class EnemyAgent : public AnimatedBoid
 {
 public:
 
 	// Constructor
 	EnemyAgent(int x, int y, int width, int height, Texture* questionTexture) :
-		Boid(x, y, width, height),
+		AnimatedBoid(x, y, width, height),
 		questionTexture {questionTexture}
 	{}
 
@@ -57,11 +58,13 @@ protected:
 private:
 	// Constants
 	static constexpr int K_PATROL_FREQUENCY_COUNTER = 5;
-	static constexpr int K_LOS_FREQUENCY_COUNTER = 30;
-	static constexpr int K_AMUSED_COUNTER = 90;
+	static constexpr int K_LOS_FREQUENCY_COUNTER = 0;
+	static constexpr int K_AMUSED_COUNTER = 65;
+	static constexpr int K_WANDER_COUNTER = 750;
 
 	// State Time counters
 	int patrolCounter = 0;
+	int wanderCounter = 0;
 	int losCounter = 0;
 	int amusedCounter = 0;
 

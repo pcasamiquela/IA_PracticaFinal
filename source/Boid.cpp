@@ -148,6 +148,11 @@ void Boid::Update(float deltaTime)
 		DoArrive(deltaTime);
 		DoFlocking(deltaTime);
 		break;
+	case Behavior::WANDER_COLLISION:
+		DoCollisionAvoidance(deltaTime);
+		DoFullWander(deltaTime);
+		
+		break;
 	default:
 		break;
 	}
@@ -573,7 +578,7 @@ void Boid::DoCollisionAvoidance(float deltaTime)
 
 	collisionDetected = false;
 
-	for (int i = 0; i < numTargets; ++i)
+	for (int i = 0; i < targets.size(); ++i)
 	{
 		DibObject* currentTarget = targets[i];
 
@@ -612,15 +617,7 @@ void Boid::DoCollisionAvoidance(float deltaTime)
 
 void Boid::AddTargetForCollisionAvoidance(DibObject* target)
 {
-	if (numTargets < MAX_NUMBER_TARGETS)
-	{
-		targets[numTargets] = target;
-		++numTargets;
-	}
-	else
-	{
-		SDL_Log("Target Array reached max number of targets.");
-	}
+	targets.push_back(target);
 }
 
 
@@ -886,40 +883,40 @@ void Boid::DoPriorityObstacleSteering(float deltaTime)
 
 void Boid::DoPriorityCollisionSteering(float deltaTime)
 {
-	// Calculate steering
-	group1.calculatedForces[0] = AdvancedSteeringUtils::DoCollisionAvoidance(position, speed, angle, K_MAX_SPEED,
-		K_MAX_STEER_FORCE, (DibObject**)targets, numTargets, coneHeight, coneHalfAngle, collisionDetected);
+	//// Calculate steering
+	//group1.calculatedForces[0] = AdvancedSteeringUtils::DoCollisionAvoidance(position, speed, angle, K_MAX_SPEED,
+	//	K_MAX_STEER_FORCE, (DibObject**)targets, numTargets, coneHeight, coneHalfAngle, collisionDetected);
 
-	// Calculate steering
-	group2.calculatedForces[0] = SteeringUtils::DoSteeringWander(position, speed, K_MAX_SPEED, K_MAX_STEER_FORCE,
-		angle, &wanderAngle, wanderMaxChange, wanderCircleOffset, wanderCircleRadius);
-	steeringForce = CombiningSteering::DoPriorityBlending(2, (SteeringGroup*)groupArray, K_EPSILON_THRESHOLD, usedGroup);
+	//// Calculate steering
+	//group2.calculatedForces[0] = SteeringUtils::DoSteeringWander(position, speed, K_MAX_SPEED, K_MAX_STEER_FORCE,
+	//	angle, &wanderAngle, wanderMaxChange, wanderCircleOffset, wanderCircleRadius);
+	//steeringForce = CombiningSteering::DoPriorityBlending(2, (SteeringGroup*)groupArray, K_EPSILON_THRESHOLD, usedGroup);
 
-	// Modify according to mass to get acceleration
-	acceleration = steeringForce / mass;
+	//// Modify according to mass to get acceleration
+	//acceleration = steeringForce / mass;
 
-	// Update Speed with acceleration
-	speed += acceleration * deltaTime;
+	//// Update Speed with acceleration
+	//speed += acceleration * deltaTime;
 }
 
 void Boid::DoPriorityCollisionPathFollowing(float deltaTime)
 {
-	// Calculate steering
-	group1.calculatedForces[0] = AdvancedSteeringUtils::DoCollisionAvoidance(position, speed, angle, K_MAX_SPEED,
-		K_MAX_STEER_FORCE, (DibObject**)targets, numTargets, coneHeight, coneHalfAngle, collisionDetected);
+	//// Calculate steering
+	//group1.calculatedForces[0] = AdvancedSteeringUtils::DoCollisionAvoidance(position, speed, angle, K_MAX_SPEED,
+	//	K_MAX_STEER_FORCE, (DibObject**)targets, numTargets, coneHeight, coneHalfAngle, collisionDetected);
 
-	// Calculate steering
-	group2.calculatedForces[0] = AdvancedSteeringUtils::DoPathFollowing(position, speed, 
-		K_MAX_SPEED, K_MAX_STEER_FORCE, path, pathFollowingStarted,
-		currentPathTarget, pathOffset, K_PATH_ARRIVAL_DISTANCE, loopPath);
+	//// Calculate steering
+	//group2.calculatedForces[0] = AdvancedSteeringUtils::DoPathFollowing(position, speed, 
+	//	K_MAX_SPEED, K_MAX_STEER_FORCE, path, pathFollowingStarted,
+	//	currentPathTarget, pathOffset, K_PATH_ARRIVAL_DISTANCE, loopPath);
 
-	steeringForce = CombiningSteering::DoPriorityBlending(2, (SteeringGroup*)groupArray, K_EPSILON_THRESHOLD, usedGroup);
+	//steeringForce = CombiningSteering::DoPriorityBlending(2, (SteeringGroup*)groupArray, K_EPSILON_THRESHOLD, usedGroup);
 
-	// Modify according to mass to get acceleration
-	acceleration = steeringForce / mass;
+	//// Modify according to mass to get acceleration
+	//acceleration = steeringForce / mass;
 
-	// Update Speed with acceleration
-	speed += acceleration * deltaTime;
+	//// Update Speed with acceleration
+	//speed += acceleration * deltaTime;
 }
 
 // Debug Functions from here till end of file

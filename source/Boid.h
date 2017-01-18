@@ -42,6 +42,7 @@ enum Behavior
 	PRIORITY_OBSTACLE,
 	PRIORITY_COLLISION_PATH_FOLLOWING,
 	FLOCKING_ARRIVE,
+	WANDER_COLLISION
 };
 
 // Make it global for easy debug manipulation
@@ -93,15 +94,17 @@ public:
 	float timeLookAhead = 0.0f;
 
 	// Wander fields
-	const int wanderMaxChange = 50;
-	const int wanderCircleOffset = 80;
-	const int wanderCircleRadius = 70;
-	float wanderAngle = 0.0f;
+	const float wanderMaxChange = 0.5f;
+	const float wanderCircleOffset = 0.8f;
+	const float wanderCircleRadius = 0.7f;
+	float wanderAngle = 0.5f;
 	Vector2D wanderCircleCenter = {};
 	Vector2D wanderDisplacementVector = {};
 
 	// Simple Path Following
 	SimplePath* simplePath = nullptr;
+	SimplePath* patrolPath = nullptr;
+	Vector2D targetpathPosition;
 	int currentSegment = 0;
 	int pathDirection = 1;
 	const float K_SIMPLE_PATH_ARRIVAL_DISTANCE = 20.0f;
@@ -130,7 +133,7 @@ public:
 	// Collision Avoidance
 	static const int MAX_NUMBER_TARGETS = 80;
 	const float K_MAX_STEER_AVOID_FORCE = 18.0f * 60.0f;
-	DibObject* targets[MAX_NUMBER_TARGETS];
+	std::vector<DibObject*> targets;
 	int numTargets = 0;
 	const float coneHeight = 80.0f;
 	const float coneHalfAngle = 30.0f;

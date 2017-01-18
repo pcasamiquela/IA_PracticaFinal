@@ -89,6 +89,7 @@ protected:
 	bool PositionMeeting(int x, int y);
 	void UpdateCollisionBoxPosition();
 	void UpdateCollisionBoxSize();
+	
 private:
 	// Collision variables
 	bool collides;
