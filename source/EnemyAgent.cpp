@@ -190,7 +190,7 @@ void EnemyAgent::ChangeState(EnemyState state)
 	}break;
 	case WANDER_SEARCH_STATE:
 	{
-		SetBehavior(Behavior::SIMPLE_WANDER);
+		SetBehavior(Behavior::WANDER);
 		targetDetected = false;
 		simplePathStart = false;
 		SetCollidesFlag(true);

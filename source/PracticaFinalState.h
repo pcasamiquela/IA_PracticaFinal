@@ -29,6 +29,7 @@ private:
 
 	bool steppedExecutionFinished = true;
 	bool isInLocker = false;
+	bool alert = false;
 
 	Grid grid;
 	//Textures

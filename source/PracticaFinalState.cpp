@@ -57,7 +57,7 @@ void PracticaFinalState::Update(float deltaTime)
 		if (!isInLocker) {
 			for (int i = 0; i < lockersPool.size(); i++) {
 				if ((int)player->GetPosition().y / 32 - 1 == (int)lockersPool[i]->GetPosition().y / 32 &&
-					(int)player->GetPosition().x / 32 == (int)lockersPool[i]->GetPosition().x / 32) {
+					(int)player->GetPosition().x / 32 == (int)lockersPool[i]->GetPosition().x / 32 && !alert) {
 					player->EnterToLocker(*lockersPool[i]);
 					isInLocker = true;
 				}
@@ -84,10 +84,16 @@ void PracticaFinalState::Update(float deltaTime)
 		}
 		soldiersPool[i]->playerIsActive = player->GetActive();
 		soldiersPool[i]->Update(deltaTime);
-	}
 
-	if (Input::Instance().GetKeyDown(KeyCode::Space)) {
-		soldiersPool[1]->simplePathStart = true;
+		if (soldiersPool[i]->GetPosition().x <= player->GetPosition().x + 30 && soldiersPool[i]->GetPosition().x >= player->GetPosition().x - 30 &&
+			soldiersPool[i]->GetPosition().y <= player->GetPosition().y + 30 && soldiersPool[i]->GetPosition().y >= player->GetPosition().y - 30 && player->GetActive()) Game::Instance().ChangeState(MENU_STATE);
+	}
+	for (int i = 0; i < soldiersPool.size(); i++) {
+		if (soldiersPool[i]->HasLOSWithTarget()) {
+			alert = true;
+			break;
+		}
+		else if (i == soldiersPool.size() - 1) alert = false;
 	}
 	player->Update(deltaTime);
 }
@@ -252,7 +258,6 @@ void PracticaFinalState::CreateSoldier(int soldierNumber) {
 		soldiersPool[soldierNumber]->SetSolidCollisions(level_01->solids);
 		soldiersPool[soldierNumber]->targets = level_01->solids;
 		soldiersPool[soldierNumber]->SetCollidesFlag(false);
-		soldiersPool[soldierNumber]->ShowCollisionBox(true);
 		soldiersPool[soldierNumber]->losObstacleArraySize = &obstacleNumber;
 		soldiersPool[soldierNumber]->losObstacleArray = obstacle;
 		soldiersPool[soldierNumber]->currentSegment = 0;
