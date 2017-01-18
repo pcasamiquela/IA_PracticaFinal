@@ -86,7 +86,8 @@ void PracticaFinalState::Update(float deltaTime)
 		soldiersPool[i]->Update(deltaTime);
 
 		if (soldiersPool[i]->GetPosition().x <= player->GetPosition().x + 30 && soldiersPool[i]->GetPosition().x >= player->GetPosition().x - 30 &&
-			soldiersPool[i]->GetPosition().y <= player->GetPosition().y + 30 && soldiersPool[i]->GetPosition().y >= player->GetPosition().y - 30 && player->GetActive()) Game::Instance().ChangeState(MENU_STATE);
+			soldiersPool[i]->GetPosition().y <= player->GetPosition().y + 30 && soldiersPool[i]->GetPosition().y >= player->GetPosition().y - 30 && player->GetActive())
+			Game::Instance().ChangeState(LOSE_STATE);
 	}
 	for (int i = 0; i < soldiersPool.size(); i++) {
 		if (soldiersPool[i]->HasLOSWithTarget()) {
@@ -94,6 +95,10 @@ void PracticaFinalState::Update(float deltaTime)
 			break;
 		}
 		else if (i == soldiersPool.size() - 1) alert = false;
+	}
+	
+	if ((int)player->GetPosition().x /32 == (int)exitPosition.x /32 && (int)player->GetPosition().y / 32 == (int)exitPosition.y/32) {
+		Game::Instance().ChangeState(WIN_STATE);
 	}
 	player->Update(deltaTime);
 }
@@ -317,6 +322,13 @@ void PracticaFinalState::LoadEntities(int* levelArray, Vector2D levelOrigin,
 					levelOrigin.y + tileImageHeight * i * tileImageScale.y
 					+ tileImageHeight * 0.5f * tileImageScale.y);
 				currentLocker++;
+			}
+			if (*(levelArray + (i*levelWidth) + j) == 7)
+			{
+				exitPosition = Vector2D(levelOrigin.x + tileImageWidth * j * tileImageScale.x
+					+ tileImageWidth * 0.5f * tileImageScale.x,
+					levelOrigin.y + tileImageHeight * i * tileImageScale.y
+					+ tileImageHeight * 0.5f * tileImageScale.y);
 			}
 			/*else if (*(levelArray + (i*levelWidth) + j) == 6)
 			{

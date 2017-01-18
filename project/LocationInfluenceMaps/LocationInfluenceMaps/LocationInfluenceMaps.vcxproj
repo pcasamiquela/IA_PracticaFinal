@@ -232,6 +232,7 @@
     <ClCompile Include="..\..\..\source\InfluenceMapUtils.cpp" />
     <ClCompile Include="..\..\..\source\InfluencePlayer.cpp" />
     <ClCompile Include="..\..\..\source\Locker.cpp" />
+    <ClCompile Include="..\..\..\source\LoseMenu.cpp" />
     <ClCompile Include="..\..\..\source\LOS_Obstacle.cpp" />
     <ClCompile Include="..\..\..\source\Main.cpp" />
     <ClCompile Include="..\..\..\source\MenuState.cpp" />
@@ -266,6 +267,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\..\..\source\WinMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\dependencies\SDL_FontCache\SDL_FontCache.h" />
@@ -357,6 +359,7 @@
     <ClInclude Include="..\..\..\source\InfluencePlayer.h" />
     <ClInclude Include="..\..\..\source\InfluenceTypes.h" />
     <ClInclude Include="..\..\..\source\Locker.h" />
+    <ClInclude Include="..\..\..\source\LoseMenu.h" />
     <ClInclude Include="..\..\..\source\LOS_Obstacle.h" />
     <ClInclude Include="..\..\..\source\MenuState.h" />
     <ClInclude Include="..\..\..\source\Miner.h" />
@@ -397,6 +400,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="..\..\..\source\WinMenu.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\PracticaFinal.licenseheader" />

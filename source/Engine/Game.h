@@ -20,6 +20,8 @@
 enum StateCode
 {
 	MENU_STATE,
+	WIN_STATE,
+	LOSE_STATE,
 	PRACTICAFINAL_STATE
 };
 

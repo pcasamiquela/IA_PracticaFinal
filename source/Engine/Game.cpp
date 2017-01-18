@@ -10,6 +10,8 @@
 
 // Add the includes of your states here
 #include "../MenuState.h"
+#include "../WinMenu.h"
+#include "../LoseMenu.h"
 #include "PracticaFinalState.h"
 
 // Add changes to new states here
@@ -20,6 +22,14 @@ void Game::ChangeState(StateCode nextState)
 		case MENU_STATE:
 		{
 			manager.ChangeState(new MenuState());
+		} break;
+		case WIN_STATE:
+		{
+			manager.ChangeState(new WinMenu());
+		} break;
+		case LOSE_STATE:
+		{
+			manager.ChangeState(new LoseMenu());
 		} break;
 		case PRACTICAFINAL_STATE:
 		{

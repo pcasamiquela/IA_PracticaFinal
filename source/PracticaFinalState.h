@@ -46,6 +46,7 @@ private:
 	vector<Locker*> lockersPool;
 	Level *level_01;
 	int numSoldiers;
+	Vector2D exitPosition;
 	vector <int> numNodes;
 	//Simple Path
 	//vector <vector<SimplePath>> simplePathVector;

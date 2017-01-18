@@ -79,7 +79,8 @@ void Level::LoadFromArray(int* levelArray,
 			}
 			else if (*(levelArray + (i*levelWidth) + j) == 2 || 
 				*(levelArray + (i*levelWidth) + j) == 5 ||
-				*(levelArray + (i*levelWidth) + j) == 6)
+				*(levelArray + (i*levelWidth) + j) == 6 ||
+				*(levelArray + (i*levelWidth) + j) == 7)
 			{
 				tileImagePath = PathUtils::GetResourcesPath("images/Room_Tile.png");
 				tileImageID = "Room";
@@ -112,6 +113,23 @@ void Level::LoadFromArray(int* levelArray,
 				currentTile->isWall = true;
 				//currentTile->ShowCollisionBox(true);
 				solids.push_back(currentTile);
+			}
+			if (*(levelArray + (i*levelWidth) + j) == 7)
+			{
+				tileImagePath = PathUtils::GetResourcesPath("images/Stairs.png");
+				tileImageID = "Stair";
+				//SDL_Log("%d-%d = %d", i, j, *(levelArray + (i*width) + j));
+				DibSprite* currentTile = new DibSprite
+				(levelOrigin.x + tileImageWidth * j * tileImageScale.x,
+					levelOrigin.y + tileImageHeight * i * tileImageScale.y,
+					tileImageWidth, tileImageHeight);
+				currentTile->SetOrigin(0.0f, 0.0f);
+				currentTile->LoadGraphic(tileImagePath, tileImageID,
+					tileImageWidth, tileImageHeight, false);
+				currentTile->SetScale(tileImageScale.x, tileImageScale.y);
+				currentTile->moves = false;
+				//currentTile->ShowCollisionBox(true);
+				noSolids.push_back(currentTile);
 			}
 		}
 	}
